@@ -1,0 +1,148 @@
+.fourblock{
+    position: relative;
+    width: 80%;
+    margin-left: auto;
+    margin-right: auto;
+    z-index: 10;
+    .fourblock-title{
+        color: white;
+        font-size: 70px;
+    }
+    .ag-format-container-sochi {
+        width: 100%;
+        margin: 0 auto;
+    }
+    
+    .fourblock-cards-top{
+        width: 100%;
+        display: flex;
+        justify-content: space-between;
+    }
+    
+    .ag-courses_item-sochi {
+        -ms-flex-preferred-size: calc(33.33333% - 30px);
+        flex-basis: calc(50% - 30px);
+        margin: 0 15px 30px;
+        overflow: hidden;
+        border-radius: 28px;
+        flex-direction: column;
+        min-height: 100%;
+    }
+    .ag-courses-item_link-sochi {
+        display: block;
+        padding: 30px 20px;
+        background-color: #EEEADF2E;
+        overflow: hidden;
+        position: relative;
+        min-height: 100%;
+    }
+    .ag-courses-item_link-sochi:hover,
+    .ag-courses-item_link-sochi:hover .ag-courses-item_date-sochi {
+        text-decoration: none;
+        color: #FFF;
+    }
+    .ag-courses-item_link-sochi:hover .ag-courses-item_bg-sochi {
+        -webkit-transform: scale(25);
+        -ms-transform: scale(25);
+        transform: scale(25);
+    }
+    .ag-courses-item_title-sochi {
+        min-height: 87px;
+        margin: 0 0 25px;
+        overflow: hidden;
+        font-size: 26px;
+        color: #FFF;
+        z-index: 2;
+        position: relative;
+        display: flex;
+        align-items: center;
+    }
+    .ag-courses-item_date-box-sochi{
+        font-size: 18px;
+        color: #FFF;
+        z-index: 2;
+        position: relative;
+    }
+    .ag-courses-item_date-sochi {
+        font-weight: bold;
+        color: #f9b234;
+        -webkit-transition: color .5s ease;
+        -o-transition: color .5s ease;
+        transition: color .5s ease
+    }
+    .ag-courses-item_bg-sochi {
+        height: 128px;
+        width: 128px;
+        background-color: #ecc786;
+        z-index: 1;
+        position: absolute;
+        top: -75px;
+        right: -75px;
+        border-radius: 50%;
+        -webkit-transition: all .5s ease;
+        -o-transition: all .5s ease;
+        transition: all .5s ease;
+    }
+    .ag-courses_item-sochi:nth-child(2n) .ag-courses-item_bg-sochi {
+        background-color: #8ddd9e;
+    }
+    .ag-courses_item-sochi:nth-child(3n) .ag-courses-item_bg-sochi {
+        background-color: #da886a;
+    }
+    .ag-courses_item-sochi:nth-child(4n) .ag-courses-item_bg-sochi {
+        background-color: #be7dff;
+    }
+    .ag-courses_item-sochi:nth-child(5n) .ag-courses-item_bg-sochi {
+        background-color: #fa86cc;
+    }
+    .ag-courses_item-sochi:nth-child(6n) .ag-courses-item_bg-sochi {
+        background-color: #8e8cfc;
+    }
+}
+
+
+@media screen and (max-width: 1400px) {
+    .fourblock-title{
+        font-size: 50px !important;
+    }
+    .ag-courses-item_title-sochi {
+        font-size: 22px !important;
+    }
+}
+
+@media screen and (max-width: 1200px) {
+    .fourblock{
+        margin-top: 50px !important;
+    }
+    .fourblock-title{
+        font-size: 40px !important;
+    }
+    .ag-courses-item_title-sochi {
+        font-size: 18px !important;
+    }
+}
+
+@media screen and (max-width: 600px) {
+    .fourblock{
+        width: 98% !important;
+    }
+    .fourblock .ag-courses_item-sochi{
+        margin-top:0px !important;
+        margin-left:0px !important;
+        margin-right:0px !important;
+    }
+    .fourblock .ag-courses_item-sochi{
+        flex-basis: calc(50% - 5px) !important;
+    }
+  
+}   
+
+@media screen and (max-width: 500px) {
+    .fourblock-title{
+        text-align: center;
+        font-size: 30px !important;
+    }
+    .ag-courses-item_title-sochi {
+        font-size: 16px !important;
+    }
+}

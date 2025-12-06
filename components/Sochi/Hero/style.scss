@@ -1,0 +1,303 @@
+.text-mobile{
+    display: none;
+}
+
+
+.firstblock-sochi{
+    display: flex;
+    z-index: 10;
+    height: 100vh;
+    width: 100%;
+    overflow: hidden;
+    justify-content: space-between;
+    .circle-container-sochi {
+        position: absolute;
+        width: 80%;
+        height: 100vh;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        transform: translate(-35%, 10%);
+    
+        .circle-large-sochi {
+          position: absolute;
+          border-radius: 1000px;
+          width: 1300px;
+          height: 1300px;
+          background-color: #142977eb;
+          z-index: 1;
+          animation: circleone 1.5s ease-in-out;
+        }
+    
+        .circle-medium-sochi {
+          position: absolute;
+          border-radius: 1000px;
+          width: 1100px;
+          height: 1100px;
+          background-color: #1f3da9eb;
+          z-index: 2;
+          animation: circleone 1s ease-in-out;
+        }
+    
+        .circle-small-sochi {
+          position: absolute;
+          border-radius: 1000px;
+          width: 900px;
+          height: 900px;
+          background-color: #2f4bb0eb;
+          z-index: 3;
+          animation: circleone 0.5s ease-in-out;
+        }
+    }
+    
+      .text-sochi{
+        padding-left: 10%;
+        color: white;
+        width: 50%;
+        margin-top: 200px;
+        z-index: 4;
+        text-align: left;
+        font-weight: 600;
+        font-size: 35px;
+        height: 100vh;
+        h1{
+            font-size: 60px;
+        }
+        span{
+            color: black;
+            background-color: white;
+        }
+        p{
+            font-size: 24px;
+            margin-top: 50px;
+        }
+      }
+    .sochi-heroimage{
+        margin-top: 200px;
+        width: 40%;
+        margin-right: 10%;
+        display: flex;
+        flex-direction: column;
+        .sochi-heroimage-top{
+            width: 100%;
+            height: 300px;
+            display: flex;
+            flex-direction: row;
+            gap: 20px;
+            .sochi-heroimage-top-left{
+                border-radius: 15px;
+                width: 50%;
+                justify-content: center;
+                background-color: #ffffff;
+                p{
+                    padding-left: 30px;
+                    font-size: 26px;
+                    font-weight: 500;
+                }
+                span{
+                    background-color: #2f4bb0eb;
+                    color: white;
+                }
+            }
+            .sochi-heroimage-top-right{
+                background-image: url("./image1.webp");
+                width: 50%;
+                background-size: cover;
+                background-position: center;
+                border-radius: 15px;
+                transition: transform 0.1s ease;
+            }
+            .sochi-heroimage-top-right:hover{
+                transform: scale(1.05);
+            }
+        }
+        .sochi-heroimage-bottom{
+            background-image: url("./image2.jpeg");
+            width: 100%;
+            height: 300px;
+            background-size: cover;
+            background-position: center;
+            border-radius: 15px;
+            margin-top: 20px;
+            transition: transform 0.1s ease;
+        }
+        .sochi-heroimage-bottom:hover{
+            transform: scale(1.05);
+            
+        }
+    }
+    .firstblock-button-sochi {
+        background-color: white;
+        border-radius: 25px;
+        padding: 25px 80px;
+        border: none;
+        font-size: 30px;
+        align-self: flex-start;
+        margin-top: 50px;
+        cursor: pointer;  
+        transition: all 0.3s ease;  
+      }
+      .firstblock-button-sochi:hover{
+        background-color: #e2a4bb;
+        color: #11215eeb;
+      }
+}
+
+@media (max-width: 1600px) {
+    .circle-large-sochi {
+        width: 1100px !important;
+        height: 1100px !important;
+      }
+  
+      .circle-medium-sochi {
+        width: 900px !important;
+        height: 900px !important;
+      }
+  
+      .circle-small-sochi {
+        width: 700px !important;
+        height: 700px !important;
+      }
+      .text-sochi{
+        h1{
+            font-size: 50px;
+        }
+        p{
+            font-size: 24px;
+        }
+      }
+}
+
+@media (max-width: 1400px) {
+    .circle-container-sochi {
+        transform: translate(-35%, 0%) !important;
+    }
+    .circle-large-sochi {
+        width: 900px !important;
+        height: 900px !important;
+      }
+  
+      .circle-medium-sochi {
+        width: 700px !important;
+        height: 700px !important;
+      }
+  
+      .circle-small-sochi {
+        width: 500px !important;
+        height: 500px !important;
+      }
+      .text-sochi{
+        h1{
+            font-size: 50px !important;
+        }
+        p{
+            font-size: 24px !important;
+        }
+      }
+      .sochi-heroimage-top{
+        height: 250px !important;
+      }
+      .sochi-heroimage-bottom{
+        height: 250px !important;
+    }
+    .sochi-heroimage-top-left{
+        p{
+            font-size: 22px !important;
+            font-weight: 500;
+        }
+    }
+}
+
+@media (max-width: 1200px) {
+    .text-mobile{
+        display: block !important;
+        color: white;
+        text-align: center;
+        margin-top: 100px;
+        p{
+            font-size: 24px;
+        }
+        h1{
+            font-size: 50px;
+        }
+        .firstblock-button-sohci-mobile{
+            background-color: white;
+            border-radius: 25px;
+            padding: 25px 80px;
+            border: none;
+            font-size: 30px;
+            align-self: flex-start;
+            margin-top: 50px;
+            cursor: pointer;  
+            transition: all 0.3s ease;  
+          }
+    }
+    .sochi-heroimage{
+        margin-top: 60px !important;
+        width: 80% !important;
+        margin-left: auto;
+        margin-right: auto;
+    }
+    .circle-container-sochi{
+        display: none !important;
+    }
+    .text-sochi{
+        display: none !important;
+    }
+    .firstblock-sochi{
+        height: auto !important;
+        display: flex !important;
+        flex-direction: column !important;
+        .sochi-heroimage{
+            order: 2 !important;
+        }
+    }
+}
+
+@media (max-width: 600px) {
+    .sochi-heroimage{
+        width: 98% !important;
+        margin-left: auto !important;
+        margin-right: auto !important; 
+    }
+}
+
+@media (max-width: 488px) {
+    .text-mobile{
+        p{
+            font-size: 20px !important; 
+        }
+        h1{
+            font-size: 44px !important;
+        }
+    }
+    .firstblock-button-sohci-mobile{
+        padding: 15px 50px !important;
+        font-size: 22px !important;
+        margin-top: 20px !important;
+    }
+    .sochi-heroimage-top-left{
+        p{
+            padding-left: 15px !important;
+            font-size: 18px !important;
+        }
+    }
+    .sochi-heroimage-top{
+        height: 200px !important;
+      }
+      .sochi-heroimage-bottom{
+        height: 200px !important;
+    }
+}
+
+@media (max-width: 428px) {
+    .text-mobile{
+        p{
+            font-size: 16px !important; 
+        }
+        h1{
+            font-size: 40px !important;
+        }
+    }
+
+}

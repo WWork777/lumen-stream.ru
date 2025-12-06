@@ -1,0 +1,158 @@
+@import '/public/const.scss';
+
+.vacancy{
+    display: flex;
+    flex-direction: column;
+    gap: 60px;
+    padding: 50px 11%;
+    h2{
+        text-align: center;
+        font-size: clamp(2.125rem, 1.6923rem + 1.9231vw, 4rem) !important;
+        font-weight: 600;
+        color: $brown;
+    }
+    .vacancy-container{
+        display: flex;
+        flex-direction: row;
+        gap: 35px;
+        .vacancy-card{
+            display: flex;
+            flex-direction: column;
+            flex: 1;
+            min-width: calc(50% - 17.5px);
+            background-color: #D8C8CB;
+            padding: 25px;
+            border-radius: 30px;
+            -webkit-border-radius: 30px;
+            -moz-border-radius: 30px;
+            -ms-border-radius: 30px;
+            -o-border-radius: 30px;
+            color: #4A3E41;
+            .vacancy-card-title{
+                font-size: clamp(1.75rem, 1.4615rem + 1.2821vw, 3rem) !important;
+                padding: 30px;
+                line-height: 1;
+                border: 1px solid $pink;
+                border-radius: 20px;
+                -webkit-border-radius: 20px;
+                -moz-border-radius: 20px;
+                -ms-border-radius: 20px;
+                -o-border-radius: 20px;
+            }
+            .vacancy-card-description{
+                font-size: clamp(0.875rem, 0.7885rem + 0.3846vw, 1.25rem) !important;
+                padding: 20px;
+                font-weight: 500;
+            }
+            .vacancy-card-list{
+                display: flex;
+                flex-direction: column;
+                gap: 5px;
+                font-size: clamp(1rem, 0.9423rem + 0.2564vw, 1.25rem) !important;
+                margin-top: 40px;
+                p{
+                    display: flex;
+                    flex-direction: row;
+                    align-items: center;
+                    gap: 10px;
+                    line-height: 1;
+                }
+            }
+            
+                svg{
+                    align-self: flex-end;
+                    margin: 0 20px 0 20px;
+                }
+        }
+        .vacancy-card-second{
+            display: flex;
+            flex-direction: column;
+            gap: 35px;
+            button{
+                font-size: clamp(1.5rem, 1.3846rem + 0.5128vw, 2rem) !important;
+                padding: 38px;
+                border: 1px solid $pink;
+                background: transparent;
+                font-weight: 400;
+                color: $brown;
+                border-radius: 30px;
+                -webkit-border-radius: 30px;
+                -moz-border-radius: 30px;
+                -ms-border-radius: 30px;
+                -o-border-radius: 30px;
+                transition: .3s ease;
+                -webkit-transition: .3s ease;
+                -moz-transition: .3s ease;
+                -ms-transition: .3s ease;
+                -o-transition: .3s ease;
+            }
+            button:hover{
+                background: $pink;
+                color: white;
+            }
+        }
+    }
+}
+
+@media (max-width: 1770px){
+    .vacancy{
+        padding: 50px 8%;
+    }
+}
+
+@media (max-width: 1500px){
+    .vacancy{
+        padding: 50px 5%;
+    }
+}
+
+@media (max-width: 700px){
+    .vacancy{
+        padding: 50px 3%;
+        gap: 30px;
+        h2{
+            font-size: 34px;
+        }
+        .vacancy-container{
+            flex-direction: column;
+            gap: 3vw;
+            .vacancy-card{
+                padding: 10px;
+                .vacancy-card-title{
+                    font-size: 28px;
+                    padding: 20px 20px;
+                    border-radius: 25px;
+                    -webkit-border-radius: 25px;
+                    -moz-border-radius: 25px;
+                    -ms-border-radius: 25px;
+                    -o-border-radius: 25px;
+                }
+                .vacancy-card-description{
+                    padding: 8px;
+                    font-size: 14px;
+                }
+                .vacancy-card-list{
+                    margin-top: 0;
+                    font-size: 16px;
+                    p{
+                        svg{
+                            min-width: 18px;
+                            min-height: 18px;
+                            width: 18px;
+                            height: 18px;
+                            margin: 0 10px;
+                            align-self: flex-start;
+                        }
+                    }
+                }
+            }
+            .vacancy-card-second{
+                gap: 3vw;
+                button{
+                    font-size: 24px;
+                    padding: 20px;
+                }
+            }
+        }
+    }
+}

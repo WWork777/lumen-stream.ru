@@ -1,0 +1,107 @@
+.accordion-mobile {
+    margin-top: 100px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    width: 100%;
+    h1{
+        z-index: 100;
+        text-align: center;
+        font-size: 50px;
+        font-weight: 600;
+        color: white;
+        font-size: 100px;
+        span{
+            background-color: #ffffff;
+            padding: 0 10px;
+            color: black;
+        }
+    }
+    .accordionItem {
+      margin-bottom: 20px;
+      border-radius: 15px;
+      overflow: hidden;
+      width: 60%;
+    }
+    .accordionHeader {
+      color: white;
+      height: 70px;
+      width: 100%;
+      padding: 15px;
+      background-color: #EEEADF2E;
+      border: none;
+      text-align: left;
+      font-size: 25px;  
+      cursor: pointer;
+      transition: background-color 0.3s ease;
+    }
+    .accordionBody {
+      color: white;
+      padding: 15px;
+      background-color: #EEEADF2E;
+      font-size: 14px;
+      line-height: 1.6;
+    }
+  
+  }
+
+
+  @media screen and (max-width: 1600px) {
+    .accordion-mobile{
+        h1{
+            font-size: 80px !important;
+        }
+        .accordionItem{
+            width: 80%;
+        }
+    }
+}
+
+@media screen and (max-width: 786px) {
+    .accordion-mobile{
+      margin-top: 50px !important;
+        h1{
+            font-size: 54px !important;
+        }
+        .accordionItem{
+          width: 86% !important;
+          .accordionHeader{
+            font-size: 22px !important;
+          }
+        }
+    }
+}
+
+@media screen and (max-width: 656px) {
+    .accordion-mobile{
+      .accordionItem{
+        
+        .accordionHeader{
+          font-size: 20px !important;
+        }
+      }
+  }
+  }
+
+
+  @media screen and (max-width: 600px) {
+    .accordion-mobile{
+      .accordionItem{
+        
+        .accordionHeader{
+          font-size: 16px !important;
+        }
+      }
+  }
+  }
+
+  @media screen and (max-width: 436px) {
+    .accordion-mobile{
+        .accordionItem{
+        
+          .accordionHeader{
+            font-size: 14px !important;
+          }
+        }
+    }
+  }

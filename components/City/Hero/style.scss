@@ -1,0 +1,124 @@
+.pink-block{
+    position: absolute;
+    background-color: #f7c7cf;
+    width: 100%;
+    height: 600px;
+    border-radius: 25px;
+    top: -60px;
+    margin-top: 180px;
+    margin-left:65%;
+}
+.text-mobile{
+    display: none;
+}
+.slider-mobile{
+    display: none;
+}
+.firstblock{
+    .slider{
+        .city-image{
+            margin-top: -80px;
+            margin-right: 100px;
+            width: 100%;
+            height: 750px;
+        }
+    }
+}
+
+@media (max-width: 1600px) {
+    .pink-block{
+        margin-top: 300px;
+        height: 500px;
+    }
+    .firstblock{
+        .slider{
+            .city-image{
+                height: 600px !important;
+                margin-top: -100px;
+            }
+        }
+    }
+}
+
+@media (max-width: 1400px) {
+    .pink-block{
+        margin-top: 150px;
+        height: 500px;
+        width: 100%;
+        margin-left: 1100px;
+    }
+    .firstblock{
+        .slider{
+            .city-image{
+                margin-right: 200px !important;
+                margin-top: -100px !important;
+            }
+        }
+    }
+}
+
+@media (max-width: 1200px) {
+    .firstblock{
+        .slider-mobile{
+            display: block;
+            justify-content: center;
+            text-align: center;
+            margin-top: 10%;
+            .city-image-mobile{
+                width: 60%;
+                height: 60%;
+            }
+        }
+        .text-mobile{
+            display: block !important;
+            text-align: center;
+            margin-top: 100px;
+            color: white;
+            h1{
+                font-size: 44px;
+            }
+            p{
+                font-size: 24px;
+            }
+            .firstblock-button {
+                background-color: white;
+                border-radius: 25px;
+                padding: 15px 35px;
+                border: none;
+                font-size: 30px;
+                cursor: pointer;  
+                transition: all 0.3s ease;  
+                width: 60% !important;
+                margin-top: 0px !important;
+              }
+              .firstblock-button:hover{
+                background-color: #e2a4bb;
+                color: #11215eeb;
+              }
+        }
+    }
+    
+}
+
+
+@media (max-width: 600px) {
+    .slider-mobile{
+        .city-image-mobile{
+            width: 90% !important;
+            height: 90% !important;
+        }
+    }
+}
+
+@media (max-width: 484px) {
+    .text-mobile{
+        h1{
+            font-size: 40px !important;
+        }
+    }
+    .firstblock-button {
+        width: 60% !important;
+        padding: 10px 10px !important;
+        font-size: 20px !important;
+    }
+}

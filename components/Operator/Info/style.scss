@@ -1,0 +1,198 @@
+.info{
+    position: relative;
+    margin-top: 50px;
+    z-index: 500;
+    width: 80%;
+    margin-left: auto;
+    margin-right: auto;
+    h1{
+        text-align: center;
+        color:white;
+        font-size: 50px;
+        font-weight: 600;
+        span{
+            background-color: #ffffff;
+            padding: 0 10px;
+            color: black;
+        }
+    }
+    .operator-card-info{
+        border-radius: 1.125rem;
+        background-color: rgba(175, 179, 207, 0.384);
+        color: white;
+        display: flex;
+        height: 100%;
+        flex-direction: column;
+        justify-content: start;
+        min-width: calc(25% - 30px);
+        max-width: calc(25% - 30px);
+        flex: 1 1;
+        box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.1);
+        margin-top: 50px;
+        .operator-card-info-image{
+            img{
+                border-top-left-radius: 0.9rem;
+                border-top-right-radius: 0.9rem;
+                max-height: 200px;
+                min-height: 200px;
+                width: 100%;
+                height: auto;
+            }
+        }
+        .operator-card-info-title{
+            padding-left: 20px;
+            padding-right: 20px;
+            h2{
+                font-size: 16px;
+            }
+        }
+        .operator-card-info-description{
+            padding-left: 20px;
+            padding-right: 20px;
+            p{
+                font-size: 15px;
+            }
+        }
+        .operator-card-info-button{
+            padding-left: 20px;
+            padding-bottom: 20px;
+            padding-right: 20px;
+            padding-top: 10px;
+            text-align: right;
+            align-content: end;
+            flex: 1 1;
+            button{
+                background-color: #1b2445;
+                color: white;
+                border: 1px solid #1b2445;
+                border-radius: 0.375rem;
+                padding: 10px 20px;
+                font-size: 14px;
+                cursor: pointer;
+                transition: all 0.3s ease-in-out;
+                &:hover{
+                    background-color: white;
+                    color: #1B2445;
+                }
+            }   
+        }
+       
+    }
+    .info-text{
+        margin-top: 20px;
+        width: 96%;
+        color: rgb(255, 255, 255);
+        text-align: left;
+        font-size: 24px;
+        border-radius: 20px;
+        background-color: #b9b9b977;
+        padding: 30px;
+
+    }
+    .second{
+        margin-top: 50px;
+        display: flex;
+    }
+}
+
+@media screen and (max-width: 1650px) {
+    .operator-card-info{
+        width: 25% !important;
+        max-width: 27% !important;
+        min-width: 27% !important;
+    }
+}
+
+@media screen and (max-width: 1400px) {
+    .info{
+       h1{
+           font-size: 40px;
+       }
+       .info-text{
+           font-size: 20px;
+       }
+       .second{
+        display: flex;
+        flex-direction: column;
+    }
+    .operator-card-info{
+        margin-top: 0;
+        margin-left: 35% !important;
+        width: 30% !important;
+        max-width: 30% !important;
+        min-width: 30% !important;
+    }
+    }
+}
+
+@media screen and (max-width: 1000px) {
+    .info{
+        .second{
+            margin-bottom: 50px !important;
+        .operator-card-info{
+        margin-top: 20px;
+            margin-left: 5% !important;
+            width: 90% !important;
+            max-width: 90% !important;
+            min-width: 90% !important;
+        }
+    }
+    
+    }
+}
+
+@media screen and (max-width: 867px) {
+    .info{
+       h1{
+           font-size: 30px !important;
+       }
+        .info-text{
+            width: 93%;
+            font-size: 16px;
+            padding: 20px;
+            
+        }
+        ul{
+            padding-left: 15px !important;
+        }
+    }
+}
+
+@media screen and (max-width: 660px) {
+    .info{
+        .info-text{
+            width: 92%;
+            font-size: 16px;
+            padding: 20px;
+            
+        }
+    }
+}
+
+@media screen and (max-width: 500px) {
+    .info{
+      h1{
+          font-size: 25px !important;
+      }
+      .operator-card-info-image{
+        img{
+            max-height: 160px !important;
+            min-height: 160px !important;
+        }
+    }
+    .operator-card-info{
+        margin-bottom: 15px !important; 
+      }
+    }
+}
+
+@media screen and (max-width: 420px) {
+    .info{
+        .info-text{
+            width: 90%;
+            font-size: 15px;
+            padding: 20px;
+            
+        }
+    }
+}

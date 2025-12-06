@@ -1,0 +1,197 @@
+.city-form{
+    margin-top: 100px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    width: 100%;
+    h1{
+        z-index: 100;
+        text-align: center;
+        font-size: 50px;
+        font-weight: 600;
+        color: white;
+        font-size: 100px;
+        span{
+            background-color: #ffffff;
+            padding: 0 10px;
+            color: black;
+        }
+    }
+    .main-form-text{
+        margin-top: 20px;
+        width: 60%;
+        color: white;
+        text-align: center;
+        font-size: 24px;
+    }
+    .main-form-form{
+        width: 80%;
+        margin-top: 50px;
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        align-items: center;
+        text-align: center;
+        gap: 20px;
+        justify-content: center;
+        label{
+            font-size: 20px;
+            font-weight: 600;
+            color: rgb(255, 255, 255);
+        }   
+        input{
+            width: 30%;
+            height: 70px;
+            border-radius: 15px;
+            border-color: white;
+            background-color: white;
+            font-size: 20px;
+            font-weight: 600;
+            color: black;
+            padding-left: 20px;
+        }
+        .main-form-toggle{
+            margin-top: 10px;
+            display: flex;
+            flex-direction: row;
+            justify-content: space-between;
+            p{
+                font-size: 18px;
+                color: white;
+                margin: 0;
+                margin-top: 20px;
+            }
+          }
+        .main-form-toggle-button{
+            padding: 10px 20px;
+            color: #000000;
+            cursor: pointer;
+            text-align: center;
+            p{
+                margin: 0;
+                font-size: 12px;
+            }
+            button{
+                border-radius: 10px;
+                background-color: white;
+                cursor: pointer;
+            }
+            .toggle-button-tg.active {
+                background-color: #2AABEE; 
+                color: #fff; 
+              }
+              .toggle-button-whats.active {
+                background-color: #2BB741; 
+                color: #fff; 
+              }
+              .toggle-button-viber.active {
+                background-color: #7360F2; 
+                color: #fff; 
+              }
+        }
+        .main-form-button{
+            margin-top: 20px;
+            .main-form-send{
+                width: 200px;
+                height: 50px;
+                font-weight: bold;  
+                font-size: 18px;  
+                padding: 10px 20px;
+                background-color: #ffffff;
+                color: #000000;
+                border-radius: 15px;
+                cursor: pointer;
+                border: none;
+                transition: all 0.3s ease;
+            }
+            .main-form-send:hover{
+                background-color: #e2a4bb;
+            }
+        }
+    }
+
+}
+
+@media screen and (max-width: 1600px) {
+    .city-form{
+        h1{
+            font-size: 80px;
+        }
+        .main-form-text{
+            font-size: 20px;
+        }
+        .main-form-form{
+            input{
+                width: 60%;
+                height: 50px;
+            }
+        }
+    }
+}
+
+@media screen and (max-width: 786px) {
+    .city-form{
+        h1{
+            font-size: 54px;
+        }
+        p{
+            font-size: 18px !important;
+        }
+      .main-form-text{
+        width: 94%;
+      }
+      .main-form-form{
+        width: 96% !important;
+      }
+    }
+}
+
+@media screen and (max-width: 600px) {
+    .city-form{
+        .main-form-form{
+            width: 80% !important;
+            input{
+                width: 100% !important;
+             }
+        }
+    
+    }
+}
+
+@media screen and (max-width: 500px) {
+    .city-form{
+        margin-top: 0px !important;
+    
+    }
+}
+
+@media screen and (max-width: 540px) {
+    .city-form{
+        .main-form-toggle{
+            p{
+                margin-top: 10px !important;
+            }
+        }
+    
+    }
+}
+
+@media screen and (max-width: 440px) {
+    .city-form{
+        .main-form-toggle{
+            p{
+                margin-top: 10px !important;
+            }
+        }
+        .main-form-toggle-button{
+            p{
+                font-size: 12px !important;
+            }
+        }
+        .main-form-toggle{
+            p{
+                font-size: 13px !important;
+            }
+        }
+    }
+}

@@ -1,0 +1,82 @@
+.fiveblock{
+    position: relative;
+    width: 80%;
+    margin-left: auto;
+    margin-right: auto;
+    z-index: 10;
+    .fiveblock-title{
+        color: white;
+        font-size: 70px;
+    }
+    .fiveblock-text-block{
+     display: flex;
+     flex-direction: row;
+     justify-content: space-between;
+     margin-top: 50px;
+    }
+    .fiveblock-card{
+        background-color: #EEEADF2E;
+        border-radius: 15px;
+        color: white;
+        font-size: 22px;
+        width: calc(30% - 20px);
+        text-align: center;
+        min-height: 150px;
+        max-height: 150px;
+    }
+}
+
+@media screen and (max-width: 1487px) {
+    .fiveblock-title{
+        font-size: 50px !important;
+    }
+    .fiveblock-card{
+        font-size: 20px !important;
+    }
+}
+
+@media screen and (max-width: 1200px) {
+    .fiveblock{
+        margin-top: 50px !important;
+    }
+    .fiveblock-title{
+        font-size: 40px !important;
+    }
+    .fiveblock-card{        
+        font-size: 18px !important;
+        min-height: 120px !important;
+        max-height: 120px !important;
+    }
+}
+
+@media screen and (max-width: 1000px) {
+    .fiveblock-text-block{
+        display: flex;
+        flex-direction: column !important;
+        margin-top: 50px;
+    }
+    .fiveblock-card{
+        width: 100% !important;
+        margin-bottom: 20px;
+
+    }
+}
+
+
+@media screen and (max-width: 600px) {
+    .fiveblock{
+        width: 98% !important;
+    }
+    .fiveblock .fiveblock-card{
+        margin-top:0px !important;
+        margin-left:0px !important;
+        margin-right:0px !important;
+    }
+}
+
+@media screen and (max-width: 500px) {
+    .fiveblock-title{
+        text-align: center;
+        font-size: 30px !important;
+    }
+}

@@ -1,0 +1,256 @@
+@import '/public/const.scss';
+
+.home-advantages{
+    display: flex;
+    flex-direction: column;
+    padding: 0px 11% 100px;
+    gap: 45px;
+    h2{
+        font-size: clamp(2rem, 1.5385rem + 2.0513vw, 4rem) !important;
+        font-weight: 600;
+        color: $brown;
+        text-align: center;
+    }
+    .promo-catalog{
+        width: 100%;
+        overflow: visible;
+        .swiper-slide{
+            position: relative;
+            display: flex;
+            flex-direction: row;
+            background-color: $brown;
+            padding: 20px;
+            color: white;
+            width: 50vw;
+            margin-right: 20px;
+            overflow: hidden;
+            border-radius: 40px;
+            -webkit-border-radius: 40px;
+            -moz-border-radius: 40px;
+            -ms-border-radius: 40px;
+            -o-border-radius: 40px;
+            height: 500px;
+            transition: .3s ease;
+            img
+            {
+                position: relative;
+                object-fit: cover;
+                height: 100%;
+                width: 50%;
+                border-radius: 25px;
+                -webkit-border-radius: 25px;
+                -moz-border-radius: 25px;
+                -ms-border-radius: 25px;
+                -o-border-radius: 25px;
+                transition: .3s ease;
+            }
+            .advantages-home-card{
+                padding: 20px;
+                width: 100%;
+                height: 100%;
+                color: white;
+                display: flex;
+                flex-direction: column;
+                justify-content: flex-start;
+                align-items: flex-start;
+                //gap: 40px;
+                line-height: 1.3;
+                border-radius: 25px;
+                -webkit-border-radius: 25px;
+                -moz-border-radius: 25px;
+                -ms-border-radius: 25px;
+                -o-border-radius: 25px;
+                transition: .4s cubic-bezier(0,0,.5,1);
+                -webkit-transition: .4s cubic-bezier(0,0,.5,1);
+                -moz-transition: .4s cubic-bezier(0,0,.5,1);
+                -ms-transition: .4s cubic-bezier(0,0,.5,1);
+                -o-transition: .4s cubic-bezier(0,0,.5,1);
+                .title-card{
+                    display: flex;
+                    gap: 15px;
+                    align-items: center;
+                    margin-bottom: 20px;
+                    p{
+                        font-size: clamp(1.1875rem, 0.9423rem + 1.0897vw, 2.25rem) !important;
+                        font-weight: 600;
+                        margin-bottom: 0;
+                        color: $red;
+                    }
+                }
+                .description-card{
+                    display: flex;
+                    flex-direction: column;
+                    gap: 18px;
+                    align-items: flex-start;
+                    .list{
+                        display: flex;
+                        flex-direction: column;
+                        gap: 0px;
+                        .list-card{
+                            display: flex;
+                            flex-direction: row;
+                            gap: 10px;
+                            font-size: clamp(0.75rem, 0.6635rem + 0.3846vw, 1.125rem) !important;
+                            font-weight: 300;
+                            line-height: 1.3;
+                            .circle{
+                                width: 15px;
+                                height: 15px;
+                                min-width: 15px;
+                                min-height: 15px;
+                                background-color: $red;
+                                margin-top: 5px;
+                                border-radius: 100%;
+                                -webkit-border-radius: 100%;
+                                -moz-border-radius: 100%;
+                                -ms-border-radius: 100%;
+                                -o-border-radius: 100%;
+                            }
+                        }
+                    }
+                    span{
+                        font-weight: 300;
+                        font-size: clamp(0.75rem, 0.6923rem + 0.2564vw, 1rem) !important;
+                    }
+                }
+            }
+        }
+        .swiper-slide:hover{
+            box-shadow:  4px 4px 20px hsla(240, 12%, 72%, 0.6);
+        }
+    }
+}
+
+@media (max-width: 1770px){
+    .home-advantages{
+        padding: 80px 8%;
+    }
+}
+
+@media (max-width: 1500px){
+    .home-advantages{
+        padding: 80px 5%;
+    }
+}
+
+@media(max-width:1690px){
+    .home-advantages{
+        .promo-catalog{
+            .swiper-slide{
+                .advantages-home-card{
+                    .title-card{
+                        p{
+                            font-size: 28px;
+                        }
+                    }
+                }
+            }
+        }
+    }
+}
+@media(max-width:1600px){
+    .home-advantages{
+        .promo-catalog{
+            .swiper-slide{
+                min-width: calc(50% - 20px);
+                .advantages-home-card{
+                    .title-card{
+                        p{
+                            font-size: 28px;
+                        }
+                    }
+                }
+            }
+        }
+    }
+}
+@media(max-width:992px){
+    .home-advantages{
+        gap: 30px;
+        .swiper-title-pagination{
+            h2{
+                font-size: 30px;
+                margin-right: 0px;
+            }
+            div{
+                .swiper-button-next-new,.swiper-button-prev-new{
+                    display: none;
+                }
+            }
+            a{
+                font-size: 16px;
+                svg{
+                    height: 25px;
+                    width: auto;
+                }
+            }
+        }
+        .promo-catalog{
+            .swiper-slide{
+                width: 85% !important;
+                min-width: 85%;
+                flex: 1;
+                margin-right: 20px;
+                padding: 10px;
+                flex-direction: column;
+                height: auto;
+                img{
+                    height: 30vh;
+                    border-radius: 33px;
+                    -webkit-border-radius: 33px;
+                    -moz-border-radius: 33px;
+                    -ms-border-radius: 33px;
+                    -o-border-radius: 33px;
+                }
+                .advantages-home-card{
+                    padding: 10px;
+                    .title-card{
+                        gap: 5px;
+                        margin-bottom: 10px;
+                        p{
+                            font-size: 19px;
+                        }
+                    }
+                    .description-card{
+                        gap: 10px;
+                        .list{
+                            gap: 5px;
+                            .list-card{
+                                .circle{
+                                    width: 7px;
+                                    height: 7px;
+                                    min-width: 7px;
+                                    min-height: 7px;
+                                }
+                            }
+                        }
+                        p{
+                            font-size: 12px;
+                            font-weight: 400;
+                            margin-bottom: 0;
+                        }
+                        span{
+                            font-size: 12px;
+                        }
+                    }
+                }
+            }
+        }
+    }
+}
+
+@media (max-width: 700px){
+    .home-advantages{
+        padding: 50px 3%;
+        h2{
+            font-size: 32px;
+        }
+        .promo-catalog{
+            .swiper-slide{
+                img{
+                    width: 100%;
+                }
+            }
+        }
+    }
+}
