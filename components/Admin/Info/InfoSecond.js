@@ -1,4 +1,4 @@
-import './style.scss'
+﻿import './style.scss'
 import Link from 'next/link'
 
 const InfoSecond = () => {
@@ -28,10 +28,10 @@ const InfoSecond = () => {
                                 <h2>Работа администратором вебкам студии. Удаленная работа</h2>
                             </div>
                             <div className="admin-card-info-description">
-                                <p>Администратор вебкам — требования, обязанности и преимущества профессии | Tipmestudio</p>
+                                <p>Администратор вебкам — требования, обязанности и преимущества профессии | Типми</p>
                             </div>
                             <div className="admin-card-info-button">
-                                <Link href={`/blog/vacancy-admin-tipmestudio`}>
+                                <Link href={`/blog/vacancy-admin-tipmi`}>
                                 <button>Читать</button>
                                 </Link>
                                 </div>

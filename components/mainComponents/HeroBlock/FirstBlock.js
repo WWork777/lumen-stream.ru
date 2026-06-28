@@ -1,77 +1,59 @@
 "use client";
+
 import "./style.scss";
 import { useState } from "react";
 import Image from "next/image";
 import Modal from "../../Modal";
 import Link from "next/link";
 
-const FirstBlock = () => {
+const cards = [
+  { text: "Работа удаленно или в студии", icon: "/Home/Hero/1.svg" },
+  { text: "Обучение и поддержка команды", icon: "/Home/Hero/2.svg" },
+  { text: "Гибкий график под ваш ритм", icon: "/Home/Hero/3.svg" },
+  { text: "Помощь с образом и стартом", icon: "/Home/Hero/4.svg" },
+];
+
+export default function FirstBlock() {
   const [isModalOpen, setIsModalOpen] = useState(false);
-  const openModal = () => setIsModalOpen(true);
-  const closeModal = () => setIsModalOpen(false);
 
   return (
-    <div className="firstblock">
+    <section className="firstblock">
       <Image
         src="/Home/Hero/hero3.webp"
         width={1920}
         height={1080}
-        alt="Работа стримером в Типми студио"
+        priority
+        alt="Работа стримером в Типми"
       />
       <div className="hero-content">
         <div className="text">
           <h1>
-            Работа<br></br>стримером
+            Работа
+            <br />
+            стримером
           </h1>
           <p>
-            Получайте от&nbsp;&nbsp;<span>1000$</span>&nbsp;&nbsp;в&nbsp;месяц
+            Получайте от <span>1000$</span> в месяц
           </p>
-          <button className="firstblock-button" onClick={openModal}>
-            Связаться с нами
-          </button>
+          <div className="hero-actions">
+            <button className="firstblock-button" onClick={() => setIsModalOpen(true)}>
+              Связаться с нами
+            </button>
+            <Link className="firstblock-link" href="/vakansii">
+              Смотреть вакансии
+            </Link>
+          </div>
         </div>
         <div className="cards">
-          <div className="card">
-            <p>Работа удаленно или на&nbsp;студии</p>
-            <Image
-              src="/Home/Hero/1.svg"
-              width={180}
-              height={100}
-              alt="Карточка1"
-            />
-          </div>
-          <div className="card">
-            <p>Постоянное обучение и&nbsp;поддежка</p>
-            <Image
-              src="/Home/Hero/2.svg"
-              width={180}
-              height={100}
-              alt="Карточка1"
-            />
-          </div>
-          <div className="card">
-            <p>Удобный график работы</p>
-            <Image
-              src="/Home/Hero/3.svg"
-              width={180}
-              height={100}
-              alt="Карточка1"
-            />
-          </div>
-          <div className="card">
-            <p>Создание личного образа</p>
-            <Image
-              src="/Home/Hero/4.svg"
-              width={180}
-              height={100}
-              alt="Карточка1"
-            />
-          </div>
+          {cards.map((card) => (
+            <div className="card" key={card.text}>
+              <p>{card.text}</p>
+              <Image src={card.icon} width={180} height={100} alt="" />
+            </div>
+          ))}
         </div>
       </div>
-      <Modal isOpen={isModalOpen} onClose={closeModal}></Modal>
-    </div>
+      <Modal isOpen={isModalOpen} onClose={() => setIsModalOpen(false)} />
+    </section>
   );
-};
-
-export default FirstBlock;
+}

@@ -6,7 +6,10 @@
     "dev": "next dev",
     "build": "next build",
     "start": "next start",
-    "lint": "next lint"
+    "lint": "next lint",
+    "generate:cities": "node scripts/generate-cities.mjs",
+    "generate:sitemap": "node scripts/generate-sitemap.mjs",
+    "seo:generate": "npm run generate:cities && npm run generate:sitemap"
   },
   "dependencies": {
     "@emotion/react": "^11.14.0",

@@ -1,113 +1,65 @@
 "use client";
-import React, { useState, useRef } from "react";
+
+import React, { useState } from "react";
 import "./style.scss";
 import Image from "next/image";
 import map from "./map3.png";
 import Modal from "../../Modal";
 import Link from "next/link";
 
-const RussiaMap = () => {
+const mapCities = [
+  { className: "mark-kaliningrad", title: "Калининград", href: "/rabota-strimerom-v-kaliningrad", x: 9, y: 28 },
+  { className: "mark-saint-petersburg", title: "Санкт-Петербург", href: "/rabota-strimerom-v-saint-petersburg", x: 14, y: 31 },
+  { className: "mark-moscow", title: "Москва", href: "/rabota-strimerom-v-moscow", x: 17, y: 43 },
+  { className: "mark-nizhny", title: "Нижний Новгород", href: "/rabota-strimerom-v-nizhny-novgorod", x: 22, y: 45 },
+  { className: "mark-kazan", title: "Казань", href: "/rabota-strimerom-v-kazan", x: 25, y: 50 },
+  { className: "mark-samara", title: "Самара", href: "/rabota-strimerom-v-samara", x: 27, y: 56 },
+  { className: "mark-ufa", title: "Уфа", href: "/rabota-strimerom-v-ufa", x: 31, y: 54 },
+  { className: "mark-yekaterinburg", title: "Екатеринбург", href: "/rabota-strimerom-v-yekaterinburg", x: 36, y: 46 },
+  { className: "mark-chelyabinsk", title: "Челябинск", href: "/rabota-strimerom-v-chelyabinsk", x: 36, y: 54 },
+  { className: "mark-novosibirsk", title: "Новосибирск", href: "/rabota-strimerom-v-novosibirsk", x: 46, y: 62 },
+  { className: "mark-krasnoyarsk", title: "Красноярск", href: "/rabota-strimerom-v-krasnoyarsk", x: 55, y: 58 },
+  { className: "mark-irkutsk", title: "Иркутск", href: "/rabota-strimerom-v-irkutsk", x: 63, y: 67 },
+  { className: "mark-khabarovsk", title: "Хабаровск", href: "/rabota-strimerom-v-khabarovsk", x: 82, y: 59 },
+  { className: "mark-vladivostok", title: "Владивосток", href: "/rabota-strimerom-v-vladivostok", x: 86, y: 76 },
+];
+
+export default function RussiaMap() {
   const [isModalOpen, setIsModalOpen] = useState(false);
-  const openModal = () => setIsModalOpen(true);
-  const closeModal = () => setIsModalOpen(false);
 
-  //   const [activeIndex, setActiveIndex] = useState(null);
-
-  //   const handleToggle = (index) => {
-  //     setActiveIndex(activeIndex === index ? null : index);
-  //   };
-
-  //   const handleClick = (index) => {
-  //     setActiveIndex(index);
-  //   };
-
-  //   const items = [
-  //     { title: 'Сочи', content: '' },
-  //     { title: 'Калиниград', content: '' },
-  //     { title: 'Казань', content: '' },
-  //     { title: 'Екатеринбург', content: '' },
-  //     { title: 'Новосибирск', content: '' },
-  //     { title: 'Кемерово', content: '' },
-  //     { title: 'Владивосток', content: '' }
-  //   ];
   return (
-    <div className="map" style={{ width: "100%" }} id="sities">
-      <h2>Города в которых мы работаем</h2>
-      <div
-        className="map-container"
-        style={{
-          width: "76%",
-          marginLeft: "12%",
-          marginTop: "5%",
-          marginRight: "12%",
-        }}
-      >
-        <Image src={map} alt="map"></Image>
-        <div className="mark-sochi">
-          <h2>Сочи</h2>
-          <div className="dot mark-sochi-dot"></div>
-        </div>
-        <div className="mark-kalinograd">
-          <h2>Калининград</h2>
-          <div className="dot mark-kalinograd-dot"></div>
-        </div>
-        <div className="mark-kazan">
-          <h2>Казань</h2>
-          <div className="dot mark-kazan-dot"></div>
-        </div>
-        <div className="mark-kemerovo">
-          <h2>Кемерово</h2>
-          <div className="dot mark-kemerovo-dot"></div>
-        </div>
-        <div className="mark-novosib">
-          <h2>Новосибирск</h2>
-          <div className="dot mark-novosib-dot"></div>
-        </div>
-        <div className="mark-ekb">
-          <h2>Екатеринбург</h2>
-          <div className="dot mark-ekb-dot"></div>
-        </div>
-        <div className="mark-vladivostok">
-          <h2>Владивосток</h2>
-          <div className="dot mark-vladivostok-dot"></div>
-        </div>
+    <section className="map" id="sities">
+      <h2>Работаем по всей РФ</h2>
+      <p className="map-note">На карте отмечены крупные города, но заявку можно оставить из любого региона России.</p>
+      <div className="map-container">
+        <Image src={map} alt="Карта городов Типми" priority={false} />
+        {mapCities.map((city) => (
+          <Link
+            className={`map-marker ${city.className}`}
+            href={city.href}
+            key={city.title}
+            style={{ "--marker-x": `${city.x}%`, "--marker-y": `${city.y}%` }}
+          >
+            <span>{city.title}</span>
+            <i aria-hidden="true"></i>
+          </Link>
+        ))}
       </div>
-      {/* <div className="accordion">
-            {items.map((item, index) => (
-                <div key={index} className="accordionItem">
-                <button
-                    className="accordionHeader"
-                    onClick={() => handleToggle(index)}
-                >
-                    {item.title}
-                
-                </button>
-                {activeIndex === index && (
-                    <div className="accordionBody">{item.content}</div>
-                )}
-                </div>
-            ))}
-        </div> */}
+
       <div className="map-text-container">
         <div className="map-text-container-line">
-          <h2 className="map-title">Не нашли своего города?</h2>
+          <h2 className="map-title">Не нашли свой город?</h2>
           <div className="map-text">
-            <p className="first-text" onClick={openModal}>
-              <span>Напишите</span>
-              нам
-              <br></br>и&nbsp;мы поможем вам начать<br></br>работу
-              из&nbsp;вашего города!
-            </p>
-            <p className="second-text">
-              Всё зависит<br></br> от тебя!
-            </p>
+            <button className="first-text" type="button" onClick={() => setIsModalOpen(true)}>
+              <span>Напишите нам</span>
+              <small>Работаем по всей РФ: поможем начать работу из вашего города.</small>
+            </button>
+            <p className="second-text">Все зависит от тебя!</p>
           </div>
         </div>
       </div>
 
-      <Modal isOpen={isModalOpen} onClose={closeModal}></Modal>
-    </div>
+      <Modal isOpen={isModalOpen} onClose={() => setIsModalOpen(false)} />
+    </section>
   );
-};
-
-export default RussiaMap;
+}

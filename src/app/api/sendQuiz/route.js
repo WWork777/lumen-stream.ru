@@ -1,40 +1,50 @@
+import { saveLead, updateLead } from "../../../lib/leadsStore";
+import { buildQuizMessage, sendTelegramMessage } from "../../../lib/telegram";
+
+export const runtime = "nodejs";
+
+const normalize = (value) => String(value || "").trim();
+
 export async function POST(req) {
-  const TELEGRAM_BOT_TOKEN = process.env.TELEGRAM_BOT_TOKEN;
-  const TELEGRAM_CHAT_ID = process.env.TELEGRAM_CHAT_ID;
-
-  const data = await req.json();
-
-  const message = `
-💬 Новая заявка из квиза (lumen-stream.ru):
-
-Имя: ${data.name}
-Город: ${data.city}
-Опыт: ${data.experience}
-Где работать: ${data.location}
-Часов в неделю: ${data.hours}
-Доход: $${data.income}
-Telegram: ${data.telegram}
-`;
-
   try {
-    const res = await fetch(
-      `https://api.telegram.org/bot${TELEGRAM_BOT_TOKEN}/sendMessage`,
-      {
-        method: "POST",
-        headers: { "Content-Type": "application/json" },
-        body: JSON.stringify({
-          chat_id: TELEGRAM_CHAT_ID,
-          text: message,
-        }),
-      }
-    );
+    const data = await req.json();
 
-    if (!res.ok) throw new Error("Telegram API Error");
+    if (!data.privacyAccepted) {
+      return Response.json(
+        { error: "Необходимо согласие на обработку персональных данных" },
+        { status: 400 },
+      );
+    }
 
-    return new Response(JSON.stringify({ ok: true }), { status: 200 });
-  } catch (error) {
-    return new Response(JSON.stringify({ error: error.message }), {
-      status: 500,
+    const lead = await saveLead({
+      type: "quiz",
+      page: "Квиз на главной",
+      name: normalize(data.name),
+      city: normalize(data.city),
+      telegram: normalize(data.telegram),
+      experience: normalize(data.experience),
+      location: normalize(data.location),
+      hours: Number(data.hours || 0),
+      income: Number(data.income || 0),
+      privacyAccepted: Boolean(data.privacyAccepted),
+      raw: data,
     });
+
+    const telegramResult = await sendTelegramMessage(buildQuizMessage(lead));
+    await updateLead(lead.id, {
+      telegramStatus: telegramResult.ok ? "sent" : "failed",
+      telegramError: telegramResult.ok ? "" : telegramResult.error,
+    });
+
+    return Response.json({
+      ok: true,
+      id: lead.id,
+      telegramDelivered: telegramResult.ok,
+    });
+  } catch (error) {
+    return Response.json(
+      { error: error?.message || "Не удалось сохранить заявку" },
+      { status: 500 },
+    );
   }
 }

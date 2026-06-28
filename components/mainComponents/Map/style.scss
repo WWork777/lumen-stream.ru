@@ -1,817 +1,271 @@
 @import '/public/const.scss';
 
-@keyframes pulse {
-    0% {
-        transform: scale(1);
-        opacity: 1;
-    }
-    50% {
-        transform: scale(1.2);
-        opacity: 0.7;
-    }
-    100% {
-        transform: scale(1);
-        opacity: 1;
-    }
+@keyframes markerPulse {
+  0% {
+    transform: translate(-50%, -50%) scale(1);
+    opacity: 0.65;
+  }
+  100% {
+    transform: translate(-50%, -50%) scale(2.2);
+    opacity: 0;
+  }
 }
 
-@keyframes pulse-outline {
-    0% {
-        transform: scale(1);
-        opacity: 0.6;
-    }
-    100% {
-        transform: scale(1.5);
-        opacity: 0;
-    }
+.map {
+  position: relative;
+  padding: 64px 0 28px;
+
+  > h2 {
+    max-width: 1100px;
+    margin: 0 auto 14px;
+    padding: 0 24px;
+    text-align: center;
+    font-size: clamp(2.125rem, 1.6923rem + 1.9231vw, 4rem);
+    line-height: 1.05;
+    font-weight: 600;
+    color: $brown;
+  }
 }
 
-.map{
+.map-note {
+  max-width: 720px;
+  margin: 0 auto 34px;
+  padding: 0 24px;
+  text-align: center;
+  font-size: clamp(1rem, 0.9135rem + 0.3846vw, 1.375rem);
+  line-height: 1.35;
+  color: rgba(74, 62, 65, 0.8);
+}
+
+.map-container {
+  position: relative;
+  width: min(1280px, 88vw);
+  aspect-ratio: 16 / 9;
+  margin: 0 auto;
+  overflow: hidden;
+  border-radius: 28px;
+
+  img {
+    position: absolute;
+    inset: 0;
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+  }
+}
+
+.map-marker {
+  position: absolute;
+  left: var(--marker-x);
+  top: var(--marker-y);
+  z-index: 2;
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  color: white;
+  transform: translate(-10px, -50%);
+  text-shadow: 0 2px 8px rgba(0, 0, 0, 0.65);
+
+  span {
+    max-width: 145px;
+    font-size: clamp(0.7rem, 0.6192rem + 0.359vw, 1.05rem);
+    line-height: 1.05;
+    font-weight: 700;
+    overflow-wrap: anywhere;
+  }
+
+  i,
+  i::after {
+    width: 14px;
+    height: 14px;
+    border-radius: 999px;
+  }
+
+  i {
     position: relative;
-    h2{
-        text-align: center;
-        font-size: clamp(2.125rem, 1.6923rem + 1.9231vw, 4rem);
-        font-weight: 600;
-        color: $brown;
-    }
-    .map-text-container{
-        margin: 50px 11%;
-        background-color: $pink;
-        padding: 25px;
-        border-radius: 40px;
-        -webkit-border-radius: 40px;
-        -moz-border-radius: 40px;
-        -ms-border-radius: 40px;
-        -o-border-radius: 40px;
-        .map-text-container-line{
-            display: flex;
-            flex-direction: column;
-            border: 1px solid $brown;
-            padding: 30px;
-            border-radius: 30px;
-            -webkit-border-radius: 30px;
-            -moz-border-radius: 30px;
-            -ms-border-radius: 30px;
-            -o-border-radius: 30px;
-            h2{
-                text-align: start;
-                font-size: clamp(2.125rem, 1.6923rem + 1.9231vw, 4rem);
-                margin-bottom: 20px;
-            }
-            .map-text{
-                display: flex;
-                flex-direction: row;
-                gap: 50px;
-                justify-content: space-between;
-                align-items: flex-start;
-                line-height: 1.2;
-                .first-text{
-                    color: white;
-                    font-size: clamp(1.125rem, 0.8077rem + 1.4103vw, 2.5rem) !important;
-                    font-weight: 300;
-                    span{
-                        background-color: rgba(255, 255, 255, 0.2);
-                        padding: 10px 40px;
-                        cursor: pointer;
-                        border-radius: 30px;
-                        -webkit-border-radius: 30px;
-                        -moz-border-radius: 30px;
-                        -ms-border-radius: 30px;
-                        -o-border-radius: 30px;
-                    }
-                }
-                .second-text{
-                    text-align: right;
-                    font-size: clamp(1.875rem, 1.6154rem + 1.1538vw, 3rem) !important;
-                    font-weight: 700; 
-                    color: white;
-                }
-            }
-        }
-}
-    .map-container{
-        position: relative;
-        line-height: 1;
-        img{
-            width: 100%;
-            height: 760px;
-        }
-        .dot {
-            position: absolute;
-            width: 14px;
-            height: 14px;
-            border-radius: 50%;
-            z-index: 10;
-            border: 2px solid #fff;
-        }
-        .mark-sochi {
-            position: relative;
-        
-            h2 {
-                position: absolute;
-                top: -245px;
-                left: 2%;
-                color: #ffffff;
-                font-size: clamp(0.75rem, 0.5769rem + 0.7692vw, 1.5rem) !important;
-                text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.6);
-                margin-bottom: 0;
-            }
-            .mark-sochi-dot{
-                background-color: $red;
-                top: -220px;
-                left: 3.5%;
-            }
-            
-        }
-        .mark-kalinograd{
-            position: relative;
-            h2 {
-                position: absolute;
-                top: -590px;
-                left: 1%;
-                color: #ffffff;
-                font-size: 24px;
-                text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.6);
-            }
-            .mark-kalinograd-dot{
-                background-color: $red;
-                top: -560px;
-                left: 5.5%;
-            }
-        }
-        .mark-kazan{
-            position: relative;
-            h2 {
-                position: absolute;
-                top: -360px;
-                left: 18%;
-                color: #ffffff;
-                font-size: 24px;
-                text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.6);
-            }
-            .mark-kazan-dot{
-                background-color: $red;
-                top: -330px;
-                left: 20%;
-            }
-        }
-        
-        .mark-kemerovo{
-            position: relative;
-            h2 {
-                position: absolute;
-                top: -135px;
-                left: 41%;
-                color: #ffffff;
-                font-size: 24px;
-                text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.6);
-            }
-            .mark-kemerovo-dot{
-                background-color: $red;
-                top: -150px;
-                left: 44.5%;
-            }
-        }
-        .mark-novosib{
-            position: relative;
-            h2 {
-                position: absolute;
-                top: -193px;
-                left: 36%;
-                color: #ffffff;
-                font-size: 24px;
-                text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.6);
-            }
-            .mark-novosib-dot{
-                background-color: $red;
-                top: -160px;
-                left: 41.5%;
-            }
-        }
-        .mark-ekb{
-            position: relative;
-            h2 {
-                position: absolute;
-                top: -315px;
-                left: 24%;
-                color: #ffffff;
-                font-size: 24px;
-                text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.6);
-            }
-            .mark-ekb-dot{
-                background-color: $red;
-                top: -280px;
-                left: 29%;
-            }
-        }
-        .mark-vladivostok{
-            position: relative;
-            h2 {
-                position: absolute;
-                top: -70px;
-                left: 81%;
-                color: #ffffff;
-                font-size: 24px;
-                text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.6);
-            }
-            .mark-vladivostok-dot{
-                background-color: $red;
-                top: -35px;
-                left: 86.3%;
-            }
-        }
-    }
+    display: inline-flex;
+    flex: 0 0 14px;
+    background: $red;
+    border: 2px solid white;
+    box-shadow: 0 0 0 3px rgba(224, 61, 78, 0.22);
+  }
 
+  i::after {
+    content: "";
+    position: absolute;
+    left: 50%;
+    top: 50%;
+    background: rgba(224, 61, 78, 0.42);
+    animation: markerPulse 1.8s ease-out infinite;
+  }
 }
 
-@media (max-width: 1770px){
-    .map{
-        .map-text-container{
-            margin: 50px 8%;
-        }
-    }
+.mark-khabarovsk,
+.mark-vladivostok {
+  flex-direction: row-reverse;
+  transform: translate(-100%, -50%);
+  text-align: right;
 }
 
-@media (max-width: 1500px){
-    .map{
-        .map-text-container{
-            margin: 50px 5%;
-        }
-    }
+.map-text-container {
+  margin: 50px 11%;
+  background-color: $pink;
+  padding: 25px;
+  border-radius: 28px;
 }
 
-@media screen and (max-width: 1400px) {
-    .map{
-        h1{
-            font-size: 70px !important;
-        }
-    }
+.map-text-container-line {
+  display: flex;
+  flex-direction: column;
+  border: 1px solid rgba(255, 255, 255, 0.34);
+  padding: 30px;
+  border-radius: 22px;
+
+  .map-title {
+    color: white;
+    text-align: start;
+    font-size: clamp(2.125rem, 1.6923rem + 1.9231vw, 4rem);
+    line-height: 1.05;
+    margin-bottom: 20px;
+  }
 }
 
-@media screen and (max-width: 1450px) {    
-    .map{
-        .map-container{
-            img{
-                height: 600px;
-            }
-            .mark-sochi {
-                h2 {
-                    top: -205px;
-                    left: 2%;
-                    font-size: 20px;
-                }
-                .mark-sochi-dot{
-                    top: -180px;
-                }
-                
-            }
-            .mark-kalinograd{
-                h2 {
-                    top: -475px;
-                    left: 1%;
-                    font-size: 20px;
-                }
-                .mark-kalinograd-dot{
-                    top: -450px;
-                }
-            }
-            .mark-kazan{
-                h2 {
-                    top: -290px;
-                    left: 18%;
-                    font-size: 20px;
-                }
-                .mark-kazan-dot{
-                    top: -260px;
-                }
-            }
-            .mark-kemerovo{
-                h2 {
-                    top: -115px;
-                    left: 41%;
-                    font-size: 20px;
-                }
-                .mark-kemerovo-dot{
-                    top: -130px;
-                }
-            }
-            .mark-ekb{
-                h2 {
-                    top: -260px;
-                    font-size: 20px;
-                }
-                .mark-ekb-dot{
-                    top: -230px;
-                }
-            }
-            .mark-novosib{
-                h2 {
-                    top: -165px;
-                    font-size: 20px;
-                }
-                .mark-novosib-dot{
-                    top: -130px;
-                }
-            }
-            .mark-vladivostok{
-                h2 {
-                    font-size: 20px;
-                }
-            
-            }
-        }
-    }
-
+.map-text {
+  display: flex;
+  gap: 28px;
+  justify-content: space-between;
+  align-items: flex-start;
+  color: white;
 }
 
-@media screen and (max-width: 900px) {
-    .map{
-        .map-container{
-            width: 96% !important;
-            margin-left: 2% !important;
-            img{
-                width: 100% !important; 
-                height: 450px !important;
-            }
-            .dot{
-                width: 10px !important;
-                height: 10px !important;
-                border-radius: 50% !important;
-            }
-            .mark-sochi {
-                h2 {
-                    top: -170px;
-                    left: 2%;
-                    font-size: 16px;
-                }
-                .mark-sochi-dot{
-                    top: -130px;
-                }
-                
-            }
-            .mark-kalinograd{
-                h2 {
-                    top: -380px;
-                    left: 1%;
-                    font-size: 16px;
-                }
-                .mark-kalinograd-dot{
-                    top: -340px;
-                }
-            }
-            .mark-kazan{
-                h2 {
-                    top: -225px;
-                    left: 17%;
-                    font-size: 16px;
-                }
-                .mark-kazan-dot{
-                    top: -185px;
-                }
-            }
-            .mark-kemerovo{
-                h2 {
-                    top: -95px;
-                    left: 41%;
-                    font-size: 16px;
-                }
-                .mark-kemerovo-dot{
-                    top: -100px;
-                }
-            }
-            .mark-ekb{
-                h2 {
-                    top: -210px;
-                    font-size: 16px;
-                }
-                .mark-ekb-dot{
-                    top: -170px;
-                }
-            }
-            .mark-novosib{
-                h2 {
-                    top: -140px;
-                    font-size: 16px;
-                }
-                .mark-novosib-dot{
-                    top: -100px;
-                }
-            }
-            .mark-vladivostok{
-                h2 {
-                    font-size: 16px;
-                    top: -70px;
-                }
-                .mark-vladivostok-dot{
-                    top: -30px;
-                }
-            }
-        }
-    }
+.first-text {
+  display: inline-flex;
+  flex-direction: column;
+  align-items: flex-start;
+  gap: 16px;
+  max-width: 720px;
+  border: 0;
+  background: transparent;
+  color: white;
+  font: inherit;
+  text-align: left;
+  cursor: pointer;
+
+  span {
+    display: inline-flex;
+    padding: 10px 28px;
+    border-radius: 999px;
+    background-color: rgba(255, 255, 255, 0.2);
+    font-size: clamp(1.125rem, 0.8077rem + 1.4103vw, 2.5rem);
+    font-weight: 600;
+  }
+
+  small {
+    display: block;
+    font-size: clamp(1rem, 0.8846rem + 0.5128vw, 1.5rem);
+    line-height: 1.35;
+  }
 }
 
-@media screen and (max-width: 768px) {
-    .map{
-        h1{
-            font-size: 54px !important;
-        }
-        .map-container{
-            width: 96% !important;
-            margin-left: 2% !important;
-            img{
-                width: 100% !important; 
-                height: 450px !important;
-            }
-            .dot{
-                width: 10px !important;
-                height: 10px !important;
-                border-radius: 50% !important;
-            }
-        }
-    }
+.second-text {
+  max-width: 420px;
+  text-align: right;
+  font-size: clamp(1.875rem, 1.6154rem + 1.1538vw, 3rem) !important;
+  line-height: 1.05;
+  font-weight: 700;
+  color: white;
 }
 
-@media (max-width: 700px){
-    .map{
-        h2{
-            font-size: 34px;
-        }
-    }
+@media (max-width: 1200px) {
+  .map-container {
+    width: 94vw;
+  }
+
+  .map-text-container {
+    margin-left: 5%;
+    margin-right: 5%;
+  }
 }
 
-@media screen and (max-width: 630px) {
-    .map{
-        .map-container{
-            width: 96% !important;
-            margin-left: 2% !important;
-            img{
-                width: 100% !important; 
-                height: 350px !important;
-            }
-            .dot{
-                width: 8px !important;
-                height: 8px !important;                
-                border-radius: 50% !important;
-            }
-            .mark-sochi {
-                h2 {
-                    top: -145px;
-                    left: 1%;
-                    font-size: 14px;
-                }
-                .mark-sochi-dot{
-                    top: -110px;
-                }
-                
-            }
-            .mark-kalinograd{
-                h2 {
-                    top: -300px;
-                    left: -1%;
-                    font-size: 14px;
-                }
-                .mark-kalinograd-dot{
-                    top: -265px;
-                }
-            }
-            .mark-kazan{
-                h2 {
-                    top: -180px;
-                    left: 17%;
-                    font-size: 14px;
-                }
-                .mark-kazan-dot{
-                    top: -145px;
-                }
-            }
-            .mark-kemerovo{
-                h2 {
-                    top: -72px;
-                    left: 39%;
-                    font-size: 14px;
-                }
-                .mark-kemerovo-dot{
-                    top: -75px;
-                }
-            }
-            .mark-ekb{
-                h2 {
-                    top: -165px;
-                    font-size: 14px;
-                }
-                .mark-ekb-dot{
-                    top: -130px;
-                }
-            }
-            .mark-novosib{
-                h2 {
-                    top: -115px;
-                    font-size: 14px;
-                }
-                .mark-novosib-dot{
-                    top: -80px;
-                }
-            }
-            .mark-vladivostok{
-                h2 {
-                    font-size: 14px;
-                    top: -55px;
-                }
-                .mark-vladivostok-dot{
-                    top: -20px;
-                }
-            }
-        }
-    }
-}
+@media (max-width: 760px) {
+  .map {
+    padding-top: 44px;
 
-@media screen and (max-width: 570px) {
-    .map{
-        .map-container{
-            width: 96% !important;
-            margin-left: 2% !important;
-            img{
-                width: 100% !important; 
-                height: 300px !important;
-            }
-            .dot{
-                width: 6px !important;
-                height: 6px !important;                
-                border-radius: 50% !important;
-            }
-            .mark-sochi {
-                h2 {
-                    top: -125px;
-                    left: 1%;
-                    font-size: 12px;
-                }
-                .mark-sochi-dot{
-                    top: -90px;
-                }
-                
-            }
-            .mark-kalinograd{
-                h2 {
-                    top: -260px;
-                    left: -1%;
-                    font-size: 12px;
-                }
-                .mark-kalinograd-dot{
-                    top: -225px;
-                }
-            }
-            .mark-kazan{
-                h2 {
-                    top: -160px;
-                    left: 17%;
-                    font-size: 12px;
-                }
-                .mark-kazan-dot{
-                    top: -125px;
-                }
-            }
-            .mark-kemerovo{
-                h2 {
-                    top: -63px;
-                    left: 39%;
-                    font-size: 12px;
-                }
-                .mark-kemerovo-dot{
-                    top: -65px;
-                }
-            }
-            .mark-ekb{
-                h2 {
-                    top: -145px;
-                    font-size: 12px;
-                }
-                .mark-ekb-dot{
-                    top: -120px;
-                }
-            }
-            .mark-novosib{
-                h2 {
-                    top: -100px;
-                    font-size: 12px;
-                }
-                .mark-novosib-dot{
-                    top: -68px;
-                }
-            }
-            .mark-vladivostok{
-                h2 {
-                    left: 78%;
-                    font-size: 12px;
-                    top: -55px;
-                }
-                .mark-vladivostok-dot{
-                    top: -20px;
-                }
-            }
-        }
+    > h2 {
+      font-size: 34px;
     }
-}
+  }
 
-@media screen and (max-width: 500px) {
-    .map{
-        .map-container{
-            width: 96% !important;
-            margin-left: 2% !important;
-            img{
-                width: 100% !important; 
-                height: 250px !important;
-            }
-            .dot{
-                width: 6px !important;
-                height: 6px !important;                
-                border-radius: 50% !important;
-            }
-            .mark-sochi {
-                h2 {
-                    top: -110px;
-                    left: 1%;
-                    font-size: 12px;
-                }
-                .mark-sochi-dot{
-                    top: -80px;
-                }
-                
-            }
-            .mark-kalinograd{
-                h2 {
-                    top: -220px;
-                    left: -1%;
-                    font-size: 12px;
-                }
-                .mark-kalinograd-dot{
-                    top: -190px;
-                }
-            }
-            .mark-kazan{
-                h2 {
-                    top: -140px;
-                    left: 17%;
-                    font-size: 12px;
-                }
-                .mark-kazan-dot{
-                    top: -105px;
-                }
-            }
-            .mark-kemerovo{
-                h2 {
-                    top: -58px;
-                    left: 39%;
-                    font-size: 12px;
-                }
-                .mark-kemerovo-dot{
-                    top: -55px;
-                }
-            }
-            .mark-ekb{
-                h2 {
-                    top: -125px;
-                    font-size: 12px;
-                }
-                .mark-ekb-dot{
-                    top: -100px;
-                }
-            }
-            .mark-novosib{
-                h2 {
-                    top: -90px;
-                    font-size: 12px;
-                }
-                .mark-novosib-dot{
-                    top: -60px;
-                }
-            }
-            .mark-vladivostok{
-                h2 {
-                    left: 76%;
-                    font-size: 12px;
-                    top: -55px;
-                }
-                .mark-vladivostok-dot{
-                    top: -20px;
-                }
-            }
-        }
-    }
-}
+  .map-note {
+    margin-bottom: 26px;
+    font-size: 16px;
+  }
 
-@media screen and (max-width: 400px) {
-    .map{
-        .map-container{
-            width: 96% !important;
-            margin-left: 2% !important;
-            img{
-                width: 100% !important; 
-                height: 225px !important;
-            }
-            .mark-sochi {
-                h2 {
-                    top: -95px;
-                    left: 1%;
-                    font-size: 12px;
-                }
-                .mark-sochi-dot{
-                    top: -80px;
-                }
-                
-            }
-            .mark-kalinograd{
-                h2 {
-                    top: -195px;
-                    left: -1%;
-                    font-size: 12px;
-                }
-                .mark-kalinograd-dot{
-                    top: -180px;
-                }
-            }
-            .mark-kazan{
-                h2 {
-                    top: -110px;
-                    left: 15%;
-                    font-size: 12px;
-                }
-                .mark-kazan-dot{
-                    top: -95px;
-                }
-            }
-            .mark-kemerovo{
-                h2 {
-                    top: -38px;
-                    left: 39%;
-                    font-size: 12px;
-                }
-                .mark-kemerovo-dot{
-                    top: -45px;
-                }
-            }
-            .mark-ekb{
-                h2 {
-                    top: -105px;
-                    font-size: 12px;
-                }
-                .mark-ekb-dot{
-                    top: -90px;
-                }
-            }
-            .mark-novosib{
-                h2 {
-                    top: -70px;
-                    left: 30%;
-                    font-size: 12px;
-                }
-                .mark-novosib-dot{
-                    top: -50px;
-                }
-            }
-            .mark-vladivostok{
-                h2 {
-                    left: 76%;
-                    font-size: 12px;
-                    top: -35px;
-                }
-                .mark-vladivostok-dot{
-                    top: -20px;
-                }
-            }
-        }
-    }
-}
+  .map-container {
+    width: 96vw;
+    border-radius: 18px;
+  }
 
-@media (max-width: 700px){
-    .map{
-        .map-text-container{
-            margin: 40px 3%;
-            padding: 10px;
-            .map-text-container-line{
-                padding: 15px;
-                border-radius: 35px;
-                -webkit-border-radius: 35px;
-                -moz-border-radius: 35px;
-                -ms-border-radius: 35px;
-                -o-border-radius: 35px;
-                h2{
-                    font-size: 34px;
-                }
-                .map-text{
-                    flex-direction: column;
-                    gap: 10px;
-                    .first-text{
-                        font-size: 18px;
-                        span{
-                            padding: 7px 15px;
-                        }
-                    }
-                    .second-text{
-                        align-self: flex-end;
-                        font-size: 30px;
-                    }
-                }
-            }
-        }
+  .map-marker {
+    gap: 5px;
+
+    span {
+      max-width: 92px;
+      font-size: 11px;
     }
+
+    i,
+    i::after {
+      width: 8px;
+      height: 8px;
+    }
+
+    i {
+      flex-basis: 8px;
+      border-width: 1px;
+    }
+  }
+
+  .mark-kaliningrad,
+  .mark-saint-petersburg,
+  .mark-nizhny,
+  .mark-samara,
+  .mark-ufa,
+  .mark-chelyabinsk,
+  .mark-krasnoyarsk,
+  .mark-irkutsk,
+  .mark-khabarovsk {
+    span {
+      display: none;
+    }
+  }
+
+  .map-text-container {
+    margin: 36px 3%;
+    padding: 10px;
+    border-radius: 22px;
+  }
+
+  .map-text-container-line {
+    padding: 18px;
+    border-radius: 18px;
+
+    .map-title {
+      font-size: 32px;
+    }
+  }
+
+  .map-text {
+    flex-direction: column;
+    gap: 18px;
+  }
+
+  .first-text span {
+    padding: 8px 18px;
+  }
+
+  .second-text {
+    align-self: flex-end;
+    font-size: 28px !important;
+  }
 }

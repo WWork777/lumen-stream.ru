@@ -1,4 +1,4 @@
-'use client'
+﻿'use client'
 import './style.scss'
 import React, { useState } from 'react';
 import Modal from "../SochiModal/index";
@@ -14,14 +14,14 @@ const Hero = () => {
                 <div className='circle circle-small-sochi'></div>
             </div>
             <div className='text-sochi'>
-                <h1><span>TipmeStudio</span><br></br> Открылась в Сочи!</h1>
+                <h1><span>Типми</span><br></br> Открылась в Сочи!</h1>
                 <p>Самая заботливая студия России теперь <br></br> и в вашем городе! Комфорт, доверие<br></br> и поддержка для каждой модели.</p>
                 <button className='firstblock-button-sochi' onClick={openModal}>МНЕ ИНТЕРЕСНО</button>
             </div>
             <div className='sochi-heroimage'>
                 <div className='sochi-heroimage-top'>
                     <div className='sochi-heroimage-top-left'>
-                        <p>Это город,<br></br> где сбываются<br></br> мечты,<br></br> а <span>TipmeStudio</span><br></br> помогает<br></br> им стать<br></br> реальностью</p>    
+                        <p>Это город,<br></br> где сбываются<br></br> мечты,<br></br> а <span>Типми</span><br></br> помогает<br></br> им стать<br></br> реальностью</p>    
                     </div>
                     <div className='sochi-heroimage-top-right'></div>
                 </div>
@@ -30,7 +30,7 @@ const Hero = () => {
                 </div>
             </div>
             <div className="text-mobile">
-             <h1><span>TipmeStudio</span><br></br> Открылась в Сочи!</h1>
+             <h1><span>Типми</span><br></br> Открылась в Сочи!</h1>
              <p>Самая заботливая студия России теперь <br></br> и в вашем городе! Комфорт, доверие<br></br> и поддержка для каждой модели.</p>
                 <button className='firstblock-button-sohci-mobile' onClick={openModal}>СВЯЗАТЬСЯ</button>
             </div>

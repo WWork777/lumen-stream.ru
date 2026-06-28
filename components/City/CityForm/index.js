@@ -1,5 +1,6 @@
 'use client'
 import './style.scss'
+import ConsentCheckbox from '../../ConsentCheckbox';
 import {useState} from 'react'
 
 const CityForm = ({page}) => {
@@ -11,6 +12,7 @@ const CityForm = ({page}) => {
          telegramNick: '',
          contactMethod: '',
          vkid: '',
+         privacyAccepted: false,
          page:page
        });
       
@@ -53,6 +55,10 @@ const CityForm = ({page}) => {
 
     if (!formData.contactMethod) newErrors.contactMethod = 'Пожалуйста, выберите способ связи';
 
+    if (!formData.privacyAccepted) {
+      newErrors.privacyAccepted = 'Подтвердите согласие на обработку персональных данных';
+    }
+
     setErrors(newErrors);
     return Object.keys(newErrors).length === 0;
   };
@@ -64,13 +70,14 @@ const CityForm = ({page}) => {
       return;
     }
   
-    const formData = {
+    const payload = {
       name: e.target[0].value,
       city: e.target[1].value,
       phone: e.target[2].value,
       telegramNick: activeButton === 'telegram' ? e.target[3]?.value : '',
       vkid: activeButton === 'vk' ? e.target[3]?.value : '',  
       contactMethod: activeButton,
+      privacyAccepted: formData.privacyAccepted,
       page:page
     };
   
@@ -78,7 +85,7 @@ const CityForm = ({page}) => {
       const response = await fetch('/api/sendmessage', {
         method: 'POST',
         headers: { 'Content-Type': 'application/json' },
-        body: JSON.stringify(formData),
+        body: JSON.stringify(payload),
       });
   
       if (response.ok) {
@@ -91,6 +98,7 @@ const CityForm = ({page}) => {
           telegramNick: '',
           contactMethod: '',
           vkid: '',
+          privacyAccepted: false,
           page:''
         });
       } else {
@@ -196,6 +204,12 @@ const CityForm = ({page}) => {
                         </div>
                     </div>  
                     {errors.contactMethod && <span className="error" style={{color:'red', fontSize:'12px', marginTop:'5px'}}>{errors.contactMethod}</span>}
+          <ConsentCheckbox
+            checked={formData.privacyAccepted}
+            onChange={(value) => setFormData({ ...formData, privacyAccepted: value })}
+            error={errors.privacyAccepted}
+            theme="dark"
+          />
                     <div className='main-form-button'>
                         <button type="submit" className='main-form-send'>Отправить</button>
                     </div>

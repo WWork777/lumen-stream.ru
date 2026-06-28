@@ -1,6 +1,7 @@
 'use client'
 import React, { useState } from 'react';
 import './style.scss';
+import ConsentCheckbox from '../ConsentCheckbox';
 
 const Modal = ({ isOpen, onClose }) => {
   const [activeButton, setActiveButton] = useState(null);
@@ -11,6 +12,7 @@ const Modal = ({ isOpen, onClose }) => {
     telegramNick: '',
     contactMethod: '',
     vkid: '',
+    privacyAccepted: false,
     page:'Главная страница'
   });
   const [errors, setErrors] = useState({});
@@ -59,6 +61,10 @@ const Modal = ({ isOpen, onClose }) => {
 
     if (!formData.contactMethod) newErrors.contactMethod = 'Пожалуйста, выберите способ связи';
 
+    if (!formData.privacyAccepted) {
+      newErrors.privacyAccepted = 'Подтвердите согласие на обработку персональных данных';
+    }
+
     setErrors(newErrors);
     return Object.keys(newErrors).length === 0;
   };
@@ -70,13 +76,14 @@ const Modal = ({ isOpen, onClose }) => {
       return;
     }
   
-    const formData = {
+    const payload = {
       name: e.target[0].value,
       city: e.target[1].value,
       phone: e.target[2].value,
       telegramNick: activeButton === 'telegram' ? e.target[3]?.value : '',
       vkid: activeButton === 'vk' ? e.target[3]?.value : '',  
       contactMethod: activeButton,
+      privacyAccepted: formData.privacyAccepted,
       page:'Главная страница'
     };
   
@@ -84,7 +91,7 @@ const Modal = ({ isOpen, onClose }) => {
       const response = await fetch('/api/sendmessage', {
         method: 'POST',
         headers: { 'Content-Type': 'application/json' },
-        body: JSON.stringify(formData),
+        body: JSON.stringify(payload),
       });
   
       if (response.ok) {
@@ -98,6 +105,7 @@ const Modal = ({ isOpen, onClose }) => {
           telegramNick: '',
           contactMethod: '',
           vkid: '',
+          privacyAccepted: false,
           page:'Главная страница'
         });
       } else {
@@ -206,6 +214,12 @@ const Modal = ({ isOpen, onClose }) => {
             </div>
           </div>
           {errors.contactMethod && <span className="error" style={{color:'red', fontSize:'12px', marginTop:'5px'}}>{errors.contactMethod}</span>}
+          <ConsentCheckbox
+            checked={formData.privacyAccepted}
+            onChange={(value) => setFormData({ ...formData, privacyAccepted: value })}
+            error={errors.privacyAccepted}
+            theme="light"
+          />
 
           <div className='modal-form-button'>
             <button type="button" onClick={onClose} className='modal-form-close'>Закрыть</button>

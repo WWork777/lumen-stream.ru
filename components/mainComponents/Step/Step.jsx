@@ -3,23 +3,21 @@
 import Modal from "../../Modal";
 import "./Step.scss";
 import { useState } from "react";
-import Link from "next/link";
 
 export default function Step() {
   const [isModalOpen, setIsModalOpen] = useState(false);
-  const openModal = () => setIsModalOpen(true);
-  const closeModal = () => setIsModalOpen(false);
+
   return (
     <>
-      <div className="step">
-        <h2>Твой первый шаг к высоким доходам</h2>
+      <section className="step">
+        <h2>Первый шаг к доходу в онлайн-стриминге</h2>
         <p>
-          Расскажите о себе с помощью небольшой анкеты или напишите нам в любой
-          мессенджер, и мы подберем для вас наилучшие условия работы.
+          Оставьте заявку или напишите нам в мессенджер. Мы расскажем о формате,
+          подберем вакансию и объясним, как безопасно начать.
         </p>
-        <button onClick={openModal}>Написать нам</button>
-      </div>
-      <Modal isOpen={isModalOpen} onClose={closeModal} />
+        <button onClick={() => setIsModalOpen(true)}>Написать нам</button>
+      </section>
+      <Modal isOpen={isModalOpen} onClose={() => setIsModalOpen(false)} />
     </>
   );
 }

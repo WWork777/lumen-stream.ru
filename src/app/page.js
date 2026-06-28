@@ -5,41 +5,45 @@ import MapComponent from "../../components/mainComponents/Map";
 import Questions from "../../components/mainComponents/Questions/Questions";
 import Quiz from "../../components/mainComponents/quiz/quiz";
 import Reviews from "../../components/mainComponents/Reviews/Reviews";
-import Sochi from "../../components/mainComponents/Sochi";
 import Step from "../../components/mainComponents/Step/Step";
 import Technic from "../../components/mainComponents/Technic/Technic";
 import Vacancy from "../../components/mainComponents/Vacancy/Vacancy";
+import { brand, SITE_URL } from "../data/seoCities";
+import { homepageSeoKeywords } from "../data/seoSemantics";
 
 export const metadata = {
-  title: "Работа стримером на дому с Lumen Studio",
+  title: `Вебкам работа и вакансии стримера для девушек 18+ — ${brand.name}`,
   description:
-    "Работа стримером на дому с Lumen Studio. Присоединяйтесь к нашей платформе, получайте обучение и стабильный доход.",
-  keywords:
-    "работа стримером на дому без опыта, заработок стримером на дому, заработок для девушек в интернете, заработок для девушек в онлайн-работе,работа стримером в Lumen Studio, Работа стримером на дому, Заработок для девушек, Работа на дому для девушек, Веб модель Lumen Studio, онлайн-модель, удаленная модель, работа в видеочате,работа на дому, работа в интернете, вакансии для девушек,работа стримером с обучением,Как стать стримером на дому и зарабатывать деньги,Заработок стримером на платформе Lumen Studio,Работа для девушек моделью на дому без опыта",
+    "Типми помогает девушкам 18+ начать вебкам работу или работу стримером: вакансии без опыта, обучение с нуля, удаленный формат или студия, гибкий график и понятные выплаты.",
+  keywords: homepageSeoKeywords,
   openGraph: {
-    title: "Lumen Studio",
+    title: `${brand.name} — вебкам вакансии, работа стримером и онлайн-работа для девушек`,
     description:
-      "Работа стримером на дому с Lumen Studio. Присоединяйтесь к нашей платформе, получайте обучение и стабильный доход.",
-    url: "https://lumen-stream.ru",
+      "Вакансии для девушек 18+: стример, вебкам модель, оператор-переводчик, администратор и скаут. Обучение, поддержка и гибкий формат работы.",
+    url: SITE_URL,
+    siteName: brand.name,
+    locale: "ru_RU",
+    type: "website",
     images: [
       {
-        url: "/logo.svg",
-        width: 630,
+        url: "/Home/Hero/hero3.webp",
+        width: 1200,
         height: 630,
+        alt: "Работа стримером для девушек в Типми",
       },
     ],
   },
   alternates: {
-    canonical: "https://lumen-stream.ru",
+    canonical: SITE_URL,
   },
 };
+
 export default function Home() {
   return (
     <>
       <HeroBlock />
       <Step />
       <Quiz />
-      <Sochi />
       <Advantages />
       <MapComponent />
       <Vacancy />

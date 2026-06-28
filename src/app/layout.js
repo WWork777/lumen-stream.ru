@@ -4,6 +4,7 @@ import Footer from "../../components/footer";
 import YandexMetrika from "../../components/YandexMetrika/YandexMEtrika";
 import localFont from "next/font/local";
 import Bootstrap from "../../components/Bootstrap/Bootstrap";
+import { brand, SITE_URL } from "../data/seoCities";
 
 
 const montserratAlternates = localFont({
@@ -52,6 +53,12 @@ const montserratAlternates = localFont({
 });
 
 export const metadata = {
+  metadataBase: new URL(SITE_URL),
+  applicationName: brand.name,
+  authors: [{ name: brand.name }],
+  creator: brand.name,
+  publisher: brand.name,
+  category: "jobs",
   icons: {
     icon: [
       { rel: 'icon', type: 'image/svg+xml', url: '/favicon/favicon.svg' },
@@ -64,7 +71,7 @@ export const metadata = {
 
 export default function RootLayout({ children }) {
   return (
-    <html lang="en">
+    <html lang="ru">
       <body className={`${montserratAlternates.className}`}>
             <Bootstrap />
             <Header />

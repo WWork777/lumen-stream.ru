@@ -164,7 +164,17 @@
             font-size: clamp(1.5rem, 1.125rem + 1.6667vw, 3.125rem) !important;
           }
         }
-        .firstblock-button{
+        .hero-actions{
+          display: flex;
+          flex-wrap: wrap;
+          gap: 14px;
+          animation: button-hero 1.6s ease;
+        }
+        .firstblock-button,
+        .firstblock-link{
+          display: inline-flex;
+          align-items: center;
+          justify-content: center;
           border: 1px solid white;
           background-color: rgba(255, 255, 255, 0.1);
           backdrop-filter: blur(15px);
@@ -175,7 +185,6 @@
           font-weight: 500;
           width: fit-content;
           cursor: pointer;
-          animation: button-hero 1.6s ease;
           line-height: 1;
           border-radius: 30px;
           -webkit-border-radius: 30px;
@@ -187,9 +196,14 @@
           -moz-transition: .3s ease;
           -ms-transition: .3s ease;
           -o-transition: .3s ease;
-          -webkit-animation: button-hero 1.6s ease;
 }
-        .firstblock-button:hover{
+        .firstblock-link{
+          background-color: $pink;
+          border-color: $pink;
+          box-shadow: inset 0 0 20px hsla(347, 43%, 48%, 0.45);
+        }
+        .firstblock-button:hover,
+        .firstblock-link:hover{
           border: 1px solid $pink;
           background-color: hsla(347, 43%, 48%, 0.2);
           box-shadow: inset 0 0 20px hsla(347, 43%, 48%, 0.5), 0 5px 15px hsla(347, 43%, 48%, 0.3);
@@ -328,7 +342,11 @@
             font-size: 24px;
           }
         }
-        .firstblock-button{
+        .hero-actions{
+          width: 100%;
+        }
+        .firstblock-button,
+        .firstblock-link{
           font-size: 20px;
           padding: 22px 50px;
           align-self: center;

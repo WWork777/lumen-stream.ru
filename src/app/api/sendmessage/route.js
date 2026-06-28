@@ -1,51 +1,50 @@
 import { NextResponse } from "next/server";
+import { saveLead, updateLead } from "../../../lib/leadsStore";
+import { buildContactMessage, sendTelegramMessage } from "../../../lib/telegram";
+
+export const runtime = "nodejs";
+
+const normalize = (value) => String(value || "").trim();
 
 export async function POST(req) {
-  const body = await req.json();
-  const { name, city, phone, telegramNick, contactMethod, vkid, page } = body;
-
-  const message = `
-<b>Заявка с сайта: lumen-stream.ru</b>
-<b>Страница:</b> ${page}
-<b>Имя:</b> ${name}
-<b>Город:</b> ${city}
-<b>Телефон:</b> ${phone}
-${
-  contactMethod === "telegram"
-    ? `<b>Telegram Ник:</b> ${telegramNick || "Не указан"}`
-    : ""
-}
-${contactMethod === "vk" ? `<b>Вк ID:</b> ${vkid || "Не указан"}` : ""}
-<b>Канал связи:</b> ${contactMethod || "Не указан"}
-`;
-
-  const TELEGRAM_BOT_TOKEN = process.env.TELEGRAM_BOT_TOKEN;
-  const CHAT_ID = process.env.TELEGRAM_CHAT_ID;
-
   try {
-    const response = await fetch(
-      `https://api.telegram.org/bot${TELEGRAM_BOT_TOKEN}/sendMessage`,
-      {
-        method: "POST",
-        headers: { "Content-Type": "application/json" },
-        body: JSON.stringify({
-          chat_id: CHAT_ID,
-          text: message,
-          parse_mode: "HTML",
-        }),
-      }
-    );
+    const body = await req.json();
 
-    if (response.ok) {
-      return NextResponse.json({ success: true });
-    } else {
-      const error = await response.json();
+    if (!body.privacyAccepted) {
       return NextResponse.json(
-        { error: error.description },
-        { status: response.status }
+        { error: "Необходимо согласие на обработку персональных данных" },
+        { status: 400 },
       );
     }
+
+    const lead = await saveLead({
+      type: "form",
+      page: normalize(body.page),
+      name: normalize(body.name),
+      city: normalize(body.city),
+      phone: normalize(body.phone),
+      telegramNick: normalize(body.telegramNick),
+      vkid: normalize(body.vkid),
+      contactMethod: normalize(body.contactMethod),
+      privacyAccepted: Boolean(body.privacyAccepted),
+      raw: body,
+    });
+
+    const telegramResult = await sendTelegramMessage(buildContactMessage(lead));
+    await updateLead(lead.id, {
+      telegramStatus: telegramResult.ok ? "sent" : "failed",
+      telegramError: telegramResult.ok ? "" : telegramResult.error,
+    });
+
+    return NextResponse.json({
+      success: true,
+      id: lead.id,
+      telegramDelivered: telegramResult.ok,
+    });
   } catch (error) {
-    return NextResponse.json({ error: "Ошибка сервера" }, { status: 500 });
+    return NextResponse.json(
+      { error: error?.message || "Не удалось сохранить заявку" },
+      { status: 500 },
+    );
   }
 }

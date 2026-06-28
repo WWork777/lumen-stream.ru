@@ -1,0 +1,369 @@
+@import '/public/const.scss';
+
+.seo-city-page {
+  background: #DEDEDE;
+  color: $brown;
+}
+
+.seo-city-hero {
+  position: relative;
+  min-height: max(760px, 100svh);
+  padding: 150px 0 90px;
+  display: flex;
+  align-items: center;
+  overflow: hidden;
+
+  img {
+    position: absolute;
+    inset: 0;
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+  }
+
+  &::after {
+    content: "";
+    position: absolute;
+    inset: 0;
+    background: linear-gradient(90deg, rgba(74, 62, 65, 0.82), rgba(74, 62, 65, 0.3));
+  }
+}
+
+.seo-city-hero-content {
+  position: relative;
+  z-index: 1;
+  width: min(860px, 88%);
+  margin: 0 0 0 11%;
+  color: white;
+
+  h1 {
+    max-width: 860px;
+    font-size: clamp(3.25rem, 2.4423rem + 3.5897vw, 6rem);
+    line-height: 0.9;
+    font-weight: 700;
+    margin: 18px 0 24px;
+    overflow-wrap: anywhere;
+  }
+
+  h1 span {
+    display: block;
+    font-size: clamp(2.5rem, 1.9808rem + 2.3077vw, 4.75rem);
+  }
+
+  p {
+    max-width: 760px;
+    font-size: clamp(1.125rem, 0.9519rem + 0.7692vw, 1.875rem);
+    line-height: 1.35;
+    font-weight: 400;
+  }
+}
+
+.seo-city-kicker {
+  display: inline-flex;
+  width: fit-content;
+  max-width: 100%;
+  padding: 10px 18px;
+  border: 1px solid rgba(255, 255, 255, 0.45);
+  border-radius: 999px;
+  background: rgba(255, 255, 255, 0.14);
+  backdrop-filter: blur(12px);
+  font-size: 16px !important;
+  line-height: 1.25;
+  overflow-wrap: anywhere;
+}
+
+.seo-city-actions {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 14px;
+  margin-top: 32px;
+
+  a {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    min-height: 54px;
+    padding: 15px 28px;
+    border-radius: 20px;
+    background: $pink;
+    color: white;
+    font-size: 18px;
+    font-weight: 600;
+
+    &:nth-child(2) {
+      background: rgba(255, 255, 255, 0.16);
+      border: 1px solid rgba(255, 255, 255, 0.35);
+    }
+  }
+}
+
+.seo-city-stats,
+.seo-city-content,
+.seo-city-grid,
+.seo-city-faq,
+.seo-city-links {
+  margin-left: 11%;
+  margin-right: 11%;
+}
+
+.seo-city-stats {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 18px;
+  margin-top: 80px;
+
+  div {
+    min-height: 170px;
+    padding: 28px;
+    border-radius: 24px;
+    background: #ECECEC;
+  }
+
+  span {
+    display: block;
+    color: $pink;
+    font-size: clamp(2.5rem, 2.0385rem + 2.0513vw, 4.5rem);
+    line-height: 1;
+    font-weight: 700;
+  }
+
+  p {
+    max-width: 330px;
+    margin-top: 16px;
+    font-size: 18px;
+    line-height: 1.35;
+  }
+}
+
+.seo-city-content {
+  display: grid;
+  grid-template-columns: minmax(0, 1.4fr) minmax(320px, 0.6fr);
+  gap: 28px;
+  margin-top: 80px;
+  align-items: stretch;
+}
+
+.seo-city-text,
+.seo-city-card,
+.seo-city-grid article,
+.seo-city-faq,
+.seo-city-links {
+  border-radius: 28px;
+  background: #ECECEC;
+}
+
+.seo-city-text,
+.seo-city-card {
+  padding: 36px;
+}
+
+.seo-city-text {
+  h2 {
+    font-size: clamp(2.125rem, 1.8365rem + 1.2821vw, 3.375rem);
+    line-height: 1.05;
+    margin-bottom: 22px;
+  }
+
+  p {
+    font-size: 20px;
+    line-height: 1.55;
+    margin-top: 18px;
+  }
+}
+
+.seo-city-card {
+  background: $pink;
+  color: white;
+
+  h3 {
+    font-size: 30px;
+    margin-bottom: 22px;
+  }
+
+  ul {
+    display: flex;
+    flex-direction: column;
+    gap: 14px;
+    padding-left: 20px;
+  }
+
+  li {
+    font-size: 18px;
+    line-height: 1.4;
+  }
+}
+
+.seo-city-grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 18px;
+  margin-top: 28px;
+
+  article {
+    padding: 30px;
+  }
+
+  h2 {
+    font-size: 27px;
+    line-height: 1.15;
+    margin-bottom: 18px;
+  }
+
+  p {
+    font-size: 18px;
+    line-height: 1.5;
+  }
+}
+
+.seo-city-faq {
+  padding: 36px;
+  margin-top: 80px;
+
+  h2 {
+    font-size: clamp(2.125rem, 1.8365rem + 1.2821vw, 3.375rem);
+    margin-bottom: 24px;
+  }
+
+  details {
+    border-top: 1px solid rgba(74, 62, 65, 0.24);
+    padding: 20px 0;
+  }
+
+  summary {
+    cursor: pointer;
+    font-size: 22px;
+    font-weight: 600;
+  }
+
+  p {
+    max-width: 920px;
+    margin-top: 14px;
+    font-size: 18px;
+    line-height: 1.5;
+  }
+}
+
+.seo-city-links {
+  padding: 36px;
+  margin-top: 28px;
+
+  h2 {
+    font-size: 32px;
+    margin-bottom: 24px;
+  }
+
+  div {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 10px;
+  }
+
+  a {
+    display: inline-flex;
+    max-width: 100%;
+    padding: 10px 16px;
+    border-radius: 999px;
+    background: white;
+    color: $brown;
+    font-size: 16px;
+    font-weight: 600;
+    line-height: 1.2;
+    overflow-wrap: anywhere;
+    text-align: center;
+  }
+}
+
+@media (max-width: 1200px) {
+  .seo-city-stats,
+  .seo-city-content,
+  .seo-city-grid,
+  .seo-city-faq,
+  .seo-city-links {
+    margin-left: 5%;
+    margin-right: 5%;
+  }
+
+  .seo-city-hero-content {
+    margin-left: 5%;
+  }
+
+  .seo-city-content,
+  .seo-city-grid {
+    grid-template-columns: 1fr;
+  }
+}
+
+@media (max-width: 760px) {
+  .seo-city-hero {
+    min-height: auto;
+    padding: 128px 0 56px;
+  }
+
+  .seo-city-hero-content {
+    width: 92%;
+    margin: 0 4%;
+
+    h1 {
+      font-size: 44px;
+      line-height: 0.95;
+    }
+
+    h1 span {
+      font-size: 36px;
+      line-height: 1;
+    }
+
+    p {
+      font-size: 18px;
+    }
+  }
+
+  .seo-city-kicker {
+    padding: 8px 12px;
+    font-size: 14px !important;
+  }
+
+  .seo-city-actions {
+    a {
+      width: 100%;
+    }
+  }
+
+  .seo-city-stats {
+    grid-template-columns: 1fr;
+    margin-top: 45px;
+  }
+
+  .seo-city-text,
+  .seo-city-card,
+  .seo-city-grid article,
+  .seo-city-faq,
+  .seo-city-links {
+    border-radius: 20px;
+    padding: 24px;
+  }
+
+  .seo-city-text p,
+  .seo-city-grid p,
+  .seo-city-faq p {
+    font-size: 16px;
+  }
+
+  .seo-city-links a {
+    max-width: calc(50% - 5px);
+  }
+}
+
+@media (max-width: 420px) {
+  .seo-city-hero-content h1 {
+    font-size: 38px;
+  }
+
+  .seo-city-hero-content h1 span {
+    font-size: 32px;
+  }
+
+  .seo-city-links a {
+    max-width: 100%;
+  }
+}

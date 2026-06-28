@@ -2,6 +2,7 @@
 import { useState, useEffect } from "react";
 import styles from "./quiz.module.scss";
 import Image from "next/image";
+import Link from "next/link";
 
 export default function Quiz() {
   const [step, setStep] = useState(0);
@@ -13,6 +14,7 @@ export default function Quiz() {
     income: 0,
     name: "",
     telegram: "@",
+    privacyAccepted: false,
   });
   const [isAnimating, setIsAnimating] = useState(false);
 
@@ -252,6 +254,25 @@ export default function Quiz() {
         />
       </div>
 
+      <label className={styles.consent}>
+        <input
+          type="checkbox"
+          name="privacyAccepted"
+          checked={formData.privacyAccepted}
+          onChange={(event) =>
+            setFormData((prev) => ({
+              ...prev,
+              privacyAccepted: event.target.checked,
+            }))
+          }
+          required
+        />
+        <span>
+          Я согласна на обработку персональных данных и принимаю{" "}
+          <Link href="/privacy" target="_blank">политику конфиденциальности</Link>.
+        </span>
+      </label>
+
       <div className={styles.navigation}>
         <button
           type="button"
@@ -260,7 +281,11 @@ export default function Quiz() {
         >
           Назад
         </button>
-        <button type="submit" className={styles.submitButton}>
+        <button
+          type="submit"
+          className={styles.submitButton}
+          disabled={!formData.privacyAccepted}
+        >
           Отправить заявку
         </button>
       </div>
