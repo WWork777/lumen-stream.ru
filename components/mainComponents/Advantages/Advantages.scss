@@ -3,6 +3,7 @@
 .home-advantages{
     display: flex;
     flex-direction: column;
+    overflow: hidden;
     padding: 0px 11% 100px;
     gap: 45px;
     h2{
@@ -13,7 +14,7 @@
     }
     .promo-catalog{
         width: 100%;
-        overflow: visible;
+        overflow: hidden;
         .swiper-slide{
             position: relative;
             display: flex;

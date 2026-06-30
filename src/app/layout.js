@@ -59,6 +59,9 @@ export const metadata = {
   creator: brand.name,
   publisher: brand.name,
   category: "jobs",
+  verification: {
+    yandex: "5d26e623da9113e4",
+  },
   icons: {
     icon: [
       { rel: 'icon', type: 'image/svg+xml', url: '/favicon/favicon.svg' },

@@ -3,9 +3,9 @@ export const SITE_URL = process.env.NEXT_PUBLIC_SITE_URL || "https://tipmestudio
 export const brand = {
   name: "Типми",
   latinName: "Tipmi Studio",
-  phone: "+7 (995) 162-17-40",
+  phone: "+7 (995) 226-69-17",
   telegram: "https://t.me/tipmestudio",
-  whatsapp: "https://api.whatsapp.com/send/?phone=79951621740",
+  whatsapp: "https://api.whatsapp.com/send/?phone=79952266917",
 };
 
 export const seoCities = [

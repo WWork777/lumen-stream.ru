@@ -131,6 +131,11 @@
     padding: 24px;
     border-radius: 22px;
 
+    h2 {
+      font-size: 30px;
+      overflow-wrap: anywhere;
+    }
+
     .main-form-text {
       font-size: 16px;
     }

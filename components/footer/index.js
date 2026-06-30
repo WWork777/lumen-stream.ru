@@ -11,6 +11,7 @@ export default function Footer() {
         </Link>
         <nav>
           <Link href="/vakansii">Вакансии</Link>
+          <Link href="/blog">Блог</Link>
           <Link href="/#sities">Города</Link>
           <Link href="/#form">Анкета</Link>
           <Link href="/kontakty">Контакты</Link>
@@ -19,13 +20,13 @@ export default function Footer() {
 
       <div className="footer-center">
         <div className="footer-center-left">
-          <a href="tel:+79951621740">+7 (995) 162-17-40</a>
+          <a href="tel:+79952266917">+7 (995) 226-69-17</a>
           <a href="mailto:studiotimpe@gmail.com">studiotimpe@gmail.com</a>
           <span>Работаем с заявками из городов России</span>
         </div>
         <div className="links">
           <Link href="https://t.me/tipmestudio">Telegram</Link>
-          <Link href="https://api.whatsapp.com/send/?phone=79951621740">WhatsApp</Link>
+          <Link href="https://api.whatsapp.com/send/?phone=79952266917">WhatsApp</Link>
         </div>
       </div>
 

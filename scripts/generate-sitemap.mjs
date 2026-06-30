@@ -16,13 +16,19 @@ let blogPaths = [];
 const hasBlogRoute = await access(resolve(root, "src/app/blog")).then(() => true).catch(() => false);
 
 if (hasBlogRoute) {
-  const postsSource = await readFile(resolve(root, "src/data/posts.json"), "utf8").catch(() => "[]");
+  const blogPostsSource = await readFile(resolve(root, "src/data/blogPosts.js"), "utf8").catch(() => "");
 
-  try {
-    const posts = JSON.parse(postsSource);
-    blogPaths = posts.map((post) => post.slug).filter(Boolean).map((slug) => `/blog/${slug}`);
-  } catch {
-    blogPaths = [...new Set([...postsSource.matchAll(slugPattern)].map((match) => `/blog/${match[1]}`))];
+  if (blogPostsSource) {
+    blogPaths = [...new Set([...blogPostsSource.matchAll(slugPattern)].map((match) => `/blog/${match[1]}`))];
+  } else {
+    const postsSource = await readFile(resolve(root, "src/data/posts.json"), "utf8").catch(() => "[]");
+
+    try {
+      const posts = JSON.parse(postsSource);
+      blogPaths = posts.map((post) => post.slug).filter(Boolean).map((slug) => `/blog/${slug}`);
+    } catch {
+      blogPaths = [...new Set([...postsSource.matchAll(slugPattern)].map((match) => `/blog/${match[1]}`))];
+    }
   }
 }
 
@@ -31,6 +37,7 @@ const basePaths = [
   "/kontakty",
   "/privacy",
   "/vakansii",
+  ...(hasBlogRoute ? ["/blog"] : []),
   ...vacancySlugs.map((slug) => `/vakansii/${slug}`),
   ...blogPaths,
 ];

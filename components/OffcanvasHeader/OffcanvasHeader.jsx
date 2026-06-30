@@ -30,15 +30,16 @@ export default function OffcanvasHeader() {
             <span className="brand-name">Типми</span>
           </Link>
           <Link href="/vakansii" onClick={closeMenu}>Вакансии</Link>
+          <Link href="/blog" onClick={closeMenu}>Блог</Link>
           <Link href="/#sities" onClick={closeMenu}>Города</Link>
           <Link href="/#form" onClick={closeMenu}>Анкета</Link>
           <Link href="/kontakty" onClick={closeMenu}>Контакты</Link>
           <div className="footer-contacts">
             <div className="links">
               <a href="https://t.me/tipmestudio">TG</a>
-              <a href="https://api.whatsapp.com/send/?phone=79951621740">WA</a>
+              <a href="https://api.whatsapp.com/send/?phone=79952266917">WA</a>
             </div>
-            <a href="tel:+79951621740">+7 (995) 162-17-40</a>
+            <a href="tel:+79952266917">+7 (995) 226-69-17</a>
             <a href="mailto:studiotimpe@gmail.com">studiotimpe@gmail.com</a>
           </div>
         </nav>

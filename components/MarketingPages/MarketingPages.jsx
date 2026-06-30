@@ -4,9 +4,11 @@ import { brand } from "../../src/data/seoCities";
 import { getVacancyPath, vacancies } from "../../src/data/vacancies";
 import "./style.scss";
 
-export function PageHero({ eyebrow, title, text, actions = [] }) {
+export function PageHero({ eyebrow, title, text, actions = [], image, className = "" }) {
+  const heroStyle = image ? { "--page-hero-image": `url("${image}")` } : undefined;
+
   return (
-    <section className="page-hero">
+    <section className={`page-hero ${className}`.trim()} style={heroStyle}>
       <div>
         {eyebrow && <p>{eyebrow}</p>}
         <h1>{title}</h1>
@@ -131,7 +133,7 @@ export function ContactsPage() {
       />
 
       <section className="page-contact-grid">
-        <a href="tel:+79951621740">
+        <a href="tel:+79952266917">
           <span>Телефон</span>
           <strong>{brand.phone}</strong>
         </a>

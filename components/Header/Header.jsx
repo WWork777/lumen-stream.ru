@@ -40,15 +40,16 @@ export default function Header() {
         <div className={`menu-header ${isDark ? "dark" : ""}`}>
           <nav className="menu" aria-label="Основная навигация">
             <Link href="/vakansii">Вакансии</Link>
+            <Link href="/blog">Блог</Link>
             <Link href="/#sities">Города</Link>
             <Link href="/#form">Анкета</Link>
             <Link href="/kontakty">Контакты</Link>
           </nav>
 
           <div className="menu icons">
-            <a href="tel:+79951621740">+7 (995) 162-17-40</a>
+            <a href="tel:+79952266917">+7 (995) 226-69-17</a>
             <a href="https://t.me/tipmestudio" aria-label="Telegram">TG</a>
-            <a href="https://api.whatsapp.com/send/?phone=79951621740" aria-label="WhatsApp">WA</a>
+            <a href="https://api.whatsapp.com/send/?phone=79952266917" aria-label="WhatsApp">WA</a>
           </div>
 
           <button id="btn-menu" className="btn-menu" type="button" onClick={handleOpenOffcanvas} aria-label="Открыть меню">
