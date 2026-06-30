@@ -36,7 +36,7 @@ export default function OffcanvasHeader() {
           <Link href="/kontakty" onClick={closeMenu}>Контакты</Link>
           <div className="footer-contacts">
             <div className="links">
-              <a href="https://t.me/tipmestudio">TG</a>
+              <a href="https://t.me/tipme_studio">TG</a>
               <a href="https://api.whatsapp.com/send/?phone=79952266917">WA</a>
             </div>
             <a href="tel:+79952266917">+7 (995) 226-69-17</a>

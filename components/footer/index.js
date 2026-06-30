@@ -25,7 +25,7 @@ export default function Footer() {
           <span>Работаем с заявками из городов России</span>
         </div>
         <div className="links">
-          <Link href="https://t.me/tipmestudio">Telegram</Link>
+          <Link href="https://t.me/tipme_studio">Telegram</Link>
           <Link href="https://api.whatsapp.com/send/?phone=79952266917">WhatsApp</Link>
         </div>
       </div>

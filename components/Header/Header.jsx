@@ -48,7 +48,7 @@ export default function Header() {
 
           <div className="menu icons">
             <a href="tel:+79952266917">+7 (995) 226-69-17</a>
-            <a href="https://t.me/tipmestudio" aria-label="Telegram">TG</a>
+            <a href="https://t.me/tipme_studio" aria-label="Telegram">TG</a>
             <a href="https://api.whatsapp.com/send/?phone=79952266917" aria-label="WhatsApp">WA</a>
           </div>
 

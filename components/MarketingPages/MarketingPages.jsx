@@ -143,7 +143,7 @@ export function ContactsPage() {
         </a>
         <a href={brand.telegram}>
           <span>Telegram</span>
-          <strong>@tipmestudio</strong>
+          <strong>@tipme_studio</strong>
         </a>
         <a href={brand.whatsapp}>
           <span>WhatsApp</span>

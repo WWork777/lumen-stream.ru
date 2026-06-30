@@ -205,7 +205,7 @@ export const brand = {
   name: "Типми",
   latinName: "Tipmi Studio",
   phone: "+7 (995) 226-69-17",
-  telegram: "https://t.me/tipmestudio",
+  telegram: "https://t.me/tipme_studio",
   whatsapp: "https://api.whatsapp.com/send/?phone=79952266917",
 };
 
